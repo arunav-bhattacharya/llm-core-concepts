@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Engineer Roadmap · Backend → AI in 3–4 Months</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Google+Sans+Code:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&display=swap');
 
 :root[data-theme="dark"]{
-  --bg:linear-gradient(165deg,#151217 0%,#171419 60%,#131115 100%);
-  --bg-solid:#151217;
+  --bg:radial-gradient(125% 85% at 50% 0%,rgba(255,255,255,.06) 0%,rgba(255,255,255,.015) 32%,rgba(255,255,255,0) 60%),#000000;
+  --bg-solid:#000000;
   --card:linear-gradient(150deg,#1c191e 0%,#211d22 100%);
   --card2:#1f1c21;
   --side:linear-gradient(180deg,#171419 0%,#1a171c 100%);
@@ -55,7 +55,7 @@ body{
   background:var(--bg);background-attachment:fixed;
   color:var(--txt);min-height:100vh;font-size:15.5px;line-height:1.62;
 }
-code,.mono,.meta,th{font-family:'Google Sans Code',ui-monospace,monospace}
+code,.mono,.meta,th{font-family:'Google Sans Flex',system-ui,sans-serif}
 b,strong,h1,h2,h3,h4{font-weight:600}
 
 /* ── topbar ── */
@@ -83,7 +83,7 @@ b,strong,h1,h2,h3,h4{font-weight:600}
   padding:18px 14px 28px;overflow-y:auto;transition:transform .28s ease}
 .sb.closed{transform:translateX(-100%)}
 .sb h3{font-size:11px;text-transform:uppercase;letter-spacing:1.4px;color:var(--mut);
-  margin:18px 8px 6px;font-family:'Google Sans Code',monospace;font-weight:600}
+  margin:18px 8px 6px;font-family:'Google Sans Flex',system-ui,sans-serif;font-weight:600}
 .sb a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:11px;
   color:var(--txt);text-decoration:none;font-size:14px;font-weight:500;margin:2px 0;cursor:pointer}
 .sb a:hover{background:var(--chip)}
@@ -93,7 +93,7 @@ b,strong,h1,h2,h3,h4{font-weight:600}
   width:34px;height:34px;border-radius:10px;font-size:18px;cursor:pointer}
 .sbhead{display:flex;align-items:center;gap:8px;padding:4px 8px 10px}
 .sbhead .logo{width:30px;height:30px;border-radius:9px;background:var(--gOr);font-size:12px;
-  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-family:'Google Sans Code',monospace}
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-family:'Google Sans Flex',system-ui,sans-serif}
 .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:55;opacity:0;pointer-events:none;transition:.25s}
 .backdrop.show{opacity:1;pointer-events:auto}
 
@@ -135,19 +135,19 @@ h3{font-size:16.5px;margin:20px 0 8px}
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:18px 0}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center;box-shadow:var(--sh)}
-.stat .n{font-size:22px;font-weight:600;background:var(--gOr);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:'Google Sans Code',monospace}
-.stat .l{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:1px;font-family:'Google Sans Code',monospace}
+.stat .n{font-size:22px;font-weight:600;background:var(--gOr);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:'Google Sans Flex',system-ui,sans-serif}
+.stat .l{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:1px;font-family:'Google Sans Flex',system-ui,sans-serif}
 
 /* priority pills */
 .pp{display:inline-flex;align-items:center;gap:6px;padding:3px 11px;border-radius:99px;
-  font-size:11px;font-weight:600;color:#fff;font-family:'Google Sans Code',monospace;letter-spacing:.5px;white-space:nowrap}
+  font-size:11px;font-weight:600;color:#fff;font-family:'Google Sans Flex',system-ui,sans-serif;letter-spacing:.5px;white-space:nowrap}
 .pp.must{background:var(--gMust)} .pp.imp{background:var(--gImp)}
 .pp.nice{background:var(--gNice)} .pp.opt{background:var(--gOpt)}
 
 /* callouts */
 .co{border-radius:13px;padding:13px 16px;margin:14px 0;background:var(--card);
   border:1px solid var(--line);border-left:5px solid;font-size:14px}
-.co b:first-child{display:block;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;font-family:'Google Sans Code',monospace}
+.co b:first-child{display:block;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;font-family:'Google Sans Flex',system-ui,sans-serif}
 .co.analogy{border-left-color:var(--te)} .co.analogy b:first-child{color:var(--te)}
 .co.gotcha{border-left-color:var(--or)} .co.gotcha b:first-child{color:var(--or)}
 .co.note{border-left-color:var(--go)} .co.note b:first-child{color:var(--go)}
@@ -157,28 +157,28 @@ h3{font-size:16.5px;margin:20px 0 8px}
 .res{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
   border-radius:13px;padding:13px 16px;margin:9px 0;box-shadow:var(--sh)}
 .res .ic{width:40px;height:40px;border-radius:11px;flex:0 0 auto;display:flex;align-items:center;
-  justify-content:center;color:#fff;font-weight:600;font-size:13px;font-family:'Google Sans Code',monospace}
+  justify-content:center;color:#fff;font-weight:600;font-size:13px;font-family:'Google Sans Flex',system-ui,sans-serif}
 .res .ic{background:var(--chip);color:var(--or);border:1px solid var(--line)}
 .res .ic.or{background:var(--gOr);color:#fff;border:none}
 .res .bd{flex:1;min-width:0}
 .res .bd b{font-size:14.5px;display:block}
 .res .bd .meta{font-size:11.5px;color:var(--mut)}
-.foc{font-size:11.5px;margin-top:3px;color:var(--or);font-family:'Google Sans Code',monospace;line-height:1.5}
+.foc{font-size:11.5px;margin-top:3px;color:var(--or);font-family:'Google Sans Flex',system-ui,sans-serif;line-height:1.5}
 .btn{display:inline-block;background:var(--tint);color:var(--or);text-decoration:none;font-weight:600;
-  font-size:12.5px;padding:8px 16px;border-radius:99px;white-space:nowrap;font-family:'Google Sans Code',monospace;
+  font-size:12.5px;padding:8px 16px;border-radius:99px;white-space:nowrap;font-family:'Google Sans Flex',system-ui,sans-serif;
   border:1px solid var(--or);transition:.15s}
 .btn.te,.btn.go{background:var(--tint);color:var(--or)}
 .btn:hover{background:var(--gOr);color:#fff;border-color:transparent}
 .tagfree{font-size:10.5px;font-weight:600;color:var(--mut);border:1px solid var(--line);
-  padding:1px 8px;border-radius:99px;font-family:'Google Sans Code',monospace}
+  padding:1px 8px;border-radius:99px;font-family:'Google Sans Flex',system-ui,sans-serif}
 .tagpaid{font-size:10.5px;font-weight:600;color:var(--go);border:1px solid var(--go);
-  padding:1px 8px;border-radius:99px;font-family:'Google Sans Code',monospace}
+  padding:1px 8px;border-radius:99px;font-family:'Google Sans Flex',system-ui,sans-serif}
 
 /* topic rows */
 .top-row{display:flex;align-items:center;justify-content:space-between;gap:12px;
   padding:9px 4px;border-bottom:1px dashed var(--line);font-size:14px}
 .top-row:last-child{border-bottom:none}
-.top-row .d{color:var(--mut);font-size:12px;font-family:'Google Sans Code',monospace}
+.top-row .d{color:var(--mut);font-size:12px;font-family:'Google Sans Flex',system-ui,sans-serif}
 
 /* table */
 .tablewrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line);box-shadow:var(--sh);margin:16px 0}
@@ -186,7 +186,7 @@ table{border-collapse:collapse;width:100%;min-width:780px;font-size:13px;backgro
 th{background:var(--th);text-align:left;padding:11px 12px;font-size:11px;letter-spacing:.8px;
   text-transform:uppercase;color:var(--txt);white-space:nowrap}
 td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:middle}
-td.c{text-align:center;font-family:'Google Sans Code',monospace;letter-spacing:1px;white-space:nowrap}
+td.c{text-align:center;font-family:'Google Sans Flex',system-ui,sans-serif;letter-spacing:1px;white-space:nowrap}
 .d3{color:var(--or);font-weight:600}.d2{color:var(--or);opacity:.62}.d1{color:var(--mut)}.d0{color:var(--mut);opacity:.4}
 .pd{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:1px}
 .pd.must{background:var(--c-must)} .pd.imp{background:var(--c-imp)} .pd.nice{background:var(--c-nice)} .pd.opt{background:var(--c-opt)}
@@ -208,7 +208,7 @@ td a:hover{text-decoration:underline}
 .svgwrap{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px;box-shadow:var(--sh);margin:16px 0}
 svg{width:100%;height:auto;display:block}
 .st{fill:var(--txt);font-family:'Google Sans Flex',sans-serif;font-weight:600}
-.sm{fill:var(--mut);font-family:'Google Sans Code',monospace}
+.sm{fill:var(--mut);font-family:'Google Sans Flex',system-ui,sans-serif}
 .svgcard{fill:var(--card2);stroke:var(--line);cursor:pointer}
 .svgcard:hover{stroke:var(--or)}
 ul{margin:8px 0 8px 20px}
