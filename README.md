@@ -5,7 +5,7 @@ roadmap for transitioning from a backend engineering background into AI engineer
 
 ## Live site
 
-Published via GitHub Pages: **https://arunav-bhattacharya.github.io/llm-core-concepts/**
+Published via GitHub Pages: **https://arunav-bhattacharya.github.io/ai-engineer/**
 
 ## How it's published
 
