@@ -1,11 +1,11 @@
-# llm-core-concepts
+# ai-engineer
 
 **AI Engineer Roadmap · Backend → AI in 3–4 Months** — an interactive, self-contained
 roadmap for transitioning from a backend engineering background into AI engineering.
 
 ## Live site
 
-Published via GitHub Pages: **https://arunav-bhattacharya.github.io/llm-core-concepts/**
+Published via GitHub Pages: **https://arunav-bhattacharya.github.io/ai-engineer/**
 
 ## How it's published
 
