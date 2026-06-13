@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineer Roadmap · Backend → AI in 3–4 Months</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Google+Sans+Code:wght@300..700&display=swap');
+
+:root[data-theme="dark"]{
+  --bg:linear-gradient(165deg,#151217 0%,#171419 60%,#131115 100%);
+  --bg-solid:#151217;
+  --card:linear-gradient(150deg,#1c191e 0%,#211d22 100%);
+  --card2:#1f1c21;
+  --side:linear-gradient(180deg,#171419 0%,#1a171c 100%);
+  --top:rgba(21,18,23,.85);
+  --txt:#ebe7ea; --mut:#a0969e; --line:#2d2931;
+  --code-bg:linear-gradient(140deg,#1b181d,#1e1b20);
+  --th:linear-gradient(140deg,#2a2029,#241f26);
+  --sh:0 10px 26px rgba(0,0,0,.4);
+  --chip:#262129;
+  --or:#ff5fa2; --te:#988b93; --go:#b598a6; --pu:#8d8295;
+  --c-must:#e06a5c; --c-imp:#d9aa3c; --c-nice:#5cb377; --c-opt:#6c98dd;
+  --tint:rgba(255,95,162,.14);
+  --gOr:linear-gradient(135deg,#ff6eae,#e8338b);
+}
+:root[data-theme="light"]{
+  --bg:linear-gradient(165deg,#f8f9fb 0%,#f2f4f8 60%,#f5f6f9 100%);
+  --bg-solid:#f6f7f9;
+  --card:linear-gradient(150deg,#ffffff 0%,#f7f9fc 100%);
+  --card2:#ffffff;
+  --side:linear-gradient(180deg,#f1f3f7 0%,#edf0f5 100%);
+  --top:rgba(248,249,251,.85);
+  --txt:#22262e; --mut:#626b79; --line:#dde2ea;
+  --code-bg:linear-gradient(140deg,#eef1f6,#ebeef3);
+  --th:linear-gradient(140deg,#e8ecf3,#e4e9f0);
+  --sh:0 8px 22px rgba(45,55,75,.1);
+  --chip:#e9edf3;
+  --or:#cf1d6e; --te:#8f7280; --go:#a1758c; --pu:#7d6a82;
+  --c-must:#b13a2e; --c-imp:#9a7410; --c-nice:#2e7d4a; --c-opt:#3a63a8;
+  --tint:rgba(207,29,110,.09);
+  --gOr:linear-gradient(135deg,#ee5d9d,#bd1a6d);
+}
+/* priority palette (fixed across themes); accent gradient is theme-scoped */
+:root{
+  --gMust:linear-gradient(135deg,#d65b4d,#a93428);
+  --gImp:linear-gradient(135deg,#d9a83f,#a3781a);
+  --gNice:linear-gradient(135deg,#56ab72,#2e7d4a);
+  --gOpt:linear-gradient(135deg,#6b96d6,#3c63a8);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Google Sans Flex',system-ui,sans-serif;
+  background:var(--bg);background-attachment:fixed;
+  color:var(--txt);min-height:100vh;font-size:15.5px;line-height:1.62;
+}
+code,.mono,.meta,th{font-family:'Google Sans Code',ui-monospace,monospace}
+b,strong,h1,h2,h3,h4{font-weight:600}
+
+/* ── topbar ── */
+.topbar{position:fixed;top:0;left:0;right:0;height:56px;z-index:50;
+  display:flex;align-items:center;gap:12px;padding:0 16px;
+  background:var(--top);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hamb{width:38px;height:38px;border:1px solid var(--line);border-radius:11px;cursor:pointer;
+  background:var(--chip);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.hamb svg{stroke:var(--or);stroke-width:2.2;stroke-linecap:round}
+.brand{font-weight:600;font-size:15px;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .mono{font-size:11px;color:var(--mut);display:block;line-height:1.1;font-weight:500}
+.spacer{flex:1}
+/* theme switch (no labels) */
+.sw{position:relative;width:48px;height:26px;flex:0 0 auto;cursor:pointer}
+.sw input{opacity:0;width:0;height:0}
+.knob{position:absolute;inset:0;border-radius:20px;background:var(--chip);border:1px solid var(--line);transition:.25s}
+.knob::before{content:"";position:absolute;width:20px;height:20px;border-radius:50%;
+  background:#fff;top:3px;left:3px;transition:.25s;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.sw input:checked + .knob{background:var(--gOr);border-color:transparent}
+.sw input:checked + .knob::before{transform:translateX(22px)}
+
+/* ── sidebar ── */
+.sb{position:fixed;top:0;left:0;bottom:0;width:268px;z-index:60;
+  background:var(--side);border-right:1px solid var(--line);
+  padding:18px 14px 28px;overflow-y:auto;transition:transform .28s ease}
+.sb.closed{transform:translateX(-100%)}
+.sb h3{font-size:11px;text-transform:uppercase;letter-spacing:1.4px;color:var(--mut);
+  margin:18px 8px 6px;font-family:'Google Sans Code',monospace;font-weight:600}
+.sb a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:11px;
+  color:var(--txt);text-decoration:none;font-size:14px;font-weight:500;margin:2px 0;cursor:pointer}
+.sb a:hover{background:var(--chip)}
+.sb a.on{background:var(--tint);color:var(--or);font-weight:600}
+.sb a .dot{width:6px;height:6px;border-radius:50%;flex:0 0 auto;opacity:.8}
+.sb .x{display:none;margin-left:auto;border:none;background:var(--chip);color:var(--txt);
+  width:34px;height:34px;border-radius:10px;font-size:18px;cursor:pointer}
+.sbhead{display:flex;align-items:center;gap:8px;padding:4px 8px 10px}
+.sbhead .logo{width:30px;height:30px;border-radius:9px;background:var(--gOr);font-size:12px;
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-family:'Google Sans Code',monospace}
+.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:55;opacity:0;pointer-events:none;transition:.25s}
+.backdrop.show{opacity:1;pointer-events:auto}
+
+/* ── main ── */
+main{margin-left:268px;padding:80px 26px 60px;max-width:1060px;transition:margin .28s ease}
+main.full{margin-left:0}
+@media(max-width:920px){
+  .sb{transform:translateX(-100%)}
+  .sb.open{transform:translateX(0)}
+  .sb .x{display:block}
+  main{margin-left:0;padding:74px 14px 50px}
+}
+.page{display:none;animation:fade .3s ease}
+.page.show{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.page{animation:none}}
+
+h1{font-size:clamp(24px,4vw,32px);line-height:1.2;margin-bottom:6px}
+h2{font-size:20px;margin:30px 0 12px}
+h3{font-size:16.5px;margin:20px 0 8px}
+.sub{color:var(--mut);font-size:15px;max-width:720px}
+.grad-txt{background:var(--gOr);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:15px;
+  padding:18px 20px;box-shadow:var(--sh);margin:14px 0}
+.grid{display:grid;gap:14px;margin:16px 0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.tap{cursor:pointer;transition:transform .15s,box-shadow .15s;position:relative;overflow:hidden}
+.tap:hover{transform:translateY(-3px)}
+.tap::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;opacity:.85}
+.tap.e-or::before{background:var(--gMust)} .tap.e-te::before{background:var(--gNice)}
+.tap.e-go::before{background:var(--gImp)} .tap.e-pu::before{background:var(--gOpt)}
+.card .meta{font-size:11.5px;color:var(--mut);letter-spacing:.4px}
+.card h4{font-size:15.5px;margin:4px 0 4px}
+.card p{font-size:13.8px;color:var(--mut)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:18px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center;box-shadow:var(--sh)}
+.stat .n{font-size:22px;font-weight:600;background:var(--gOr);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:'Google Sans Code',monospace}
+.stat .l{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:1px;font-family:'Google Sans Code',monospace}
+
+/* priority pills */
+.pp{display:inline-flex;align-items:center;gap:6px;padding:3px 11px;border-radius:99px;
+  font-size:11px;font-weight:600;color:#fff;font-family:'Google Sans Code',monospace;letter-spacing:.5px;white-space:nowrap}
+.pp.must{background:var(--gMust)} .pp.imp{background:var(--gImp)}
+.pp.nice{background:var(--gNice)} .pp.opt{background:var(--gOpt)}
+
+/* callouts */
+.co{border-radius:13px;padding:13px 16px;margin:14px 0;background:var(--card);
+  border:1px solid var(--line);border-left:5px solid;font-size:14px}
+.co b:first-child{display:block;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;font-family:'Google Sans Code',monospace}
+.co.analogy{border-left-color:var(--te)} .co.analogy b:first-child{color:var(--te)}
+.co.gotcha{border-left-color:var(--or)} .co.gotcha b:first-child{color:var(--or)}
+.co.note{border-left-color:var(--go)} .co.note b:first-child{color:var(--go)}
+.co.indepth{border-left-color:var(--pu)} .co.indepth b:first-child{color:var(--pu)}
+
+/* resource rows */
+.res{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
+  border-radius:13px;padding:13px 16px;margin:9px 0;box-shadow:var(--sh)}
+.res .ic{width:40px;height:40px;border-radius:11px;flex:0 0 auto;display:flex;align-items:center;
+  justify-content:center;color:#fff;font-weight:600;font-size:13px;font-family:'Google Sans Code',monospace}
+.res .ic{background:var(--chip);color:var(--or);border:1px solid var(--line)}
+.res .ic.or{background:var(--gOr);color:#fff;border:none}
+.res .bd{flex:1;min-width:0}
+.res .bd b{font-size:14.5px;display:block}
+.res .bd .meta{font-size:11.5px;color:var(--mut)}
+.foc{font-size:11.5px;margin-top:3px;color:var(--or);font-family:'Google Sans Code',monospace;line-height:1.5}
+.btn{display:inline-block;background:var(--tint);color:var(--or);text-decoration:none;font-weight:600;
+  font-size:12.5px;padding:8px 16px;border-radius:99px;white-space:nowrap;font-family:'Google Sans Code',monospace;
+  border:1px solid var(--or);transition:.15s}
+.btn.te,.btn.go{background:var(--tint);color:var(--or)}
+.btn:hover{background:var(--gOr);color:#fff;border-color:transparent}
+.tagfree{font-size:10.5px;font-weight:600;color:var(--mut);border:1px solid var(--line);
+  padding:1px 8px;border-radius:99px;font-family:'Google Sans Code',monospace}
+.tagpaid{font-size:10.5px;font-weight:600;color:var(--go);border:1px solid var(--go);
+  padding:1px 8px;border-radius:99px;font-family:'Google Sans Code',monospace}
+
+/* topic rows */
+.top-row{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:9px 4px;border-bottom:1px dashed var(--line);font-size:14px}
+.top-row:last-child{border-bottom:none}
+.top-row .d{color:var(--mut);font-size:12px;font-family:'Google Sans Code',monospace}
+
+/* table */
+.tablewrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line);box-shadow:var(--sh);margin:16px 0}
+table{border-collapse:collapse;width:100%;min-width:780px;font-size:13px;background:var(--card2)}
+th{background:var(--th);text-align:left;padding:11px 12px;font-size:11px;letter-spacing:.8px;
+  text-transform:uppercase;color:var(--txt);white-space:nowrap}
+td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:middle}
+td.c{text-align:center;font-family:'Google Sans Code',monospace;letter-spacing:1px;white-space:nowrap}
+.d3{color:var(--or);font-weight:600}.d2{color:var(--or);opacity:.62}.d1{color:var(--mut)}.d0{color:var(--mut);opacity:.4}
+.pd{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.pd.must{background:var(--c-must)} .pd.imp{background:var(--c-imp)} .pd.nice{background:var(--c-nice)} .pd.opt{background:var(--c-opt)}
+td a{color:var(--or);text-decoration:none;font-weight:500}
+td a:hover{text-decoration:underline}
+
+/* pager */
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:34px}
+.pager a{display:flex;flex-direction:column;gap:2px;text-decoration:none;color:var(--txt);
+  background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 18px;
+  min-width:42%;box-shadow:var(--sh);cursor:pointer}
+.pager a:hover{border-color:var(--or)}
+.pager a .meta{font-size:10.5px;color:var(--mut);text-transform:uppercase;letter-spacing:1px}
+.pager a b{font-size:14px}
+.pager a.nx{text-align:right;margin-left:auto}
+.pager a.nx .meta{background:var(--gOr);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* svg */
+.svgwrap{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px;box-shadow:var(--sh);margin:16px 0}
+svg{width:100%;height:auto;display:block}
+.st{fill:var(--txt);font-family:'Google Sans Flex',sans-serif;font-weight:600}
+.sm{fill:var(--mut);font-family:'Google Sans Code',monospace}
+.svgcard{fill:var(--card2);stroke:var(--line);cursor:pointer}
+.svgcard:hover{stroke:var(--or)}
+ul{margin:8px 0 8px 20px}
+li{margin:4px 0;font-size:14.3px}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <button class="hamb" id="hamb" aria-label="Menu">
+    <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M1 1h16M1 7h16M1 13h16"/></svg>
+  </button>
+  <div class="brand">AI Engineer Roadmap<span class="mono">backend → AI · 12–14 weeks</span></div>
+  <div class="spacer"></div>
+  <label class="sw" aria-label="Theme"><input type="checkbox" id="thm"><span class="knob"></span></label>
+</header>
+
+<nav class="sb" id="sb">
+  <div class="sbhead"><div class="logo">AI</div><b style="font-size:14px">Roadmap</b><button class="x" id="sbx">×</button></div>
+  <h3>Start here</h3>
+  <a data-go="overview"><span class="dot" style="background:var(--mut)"></span>Overview</a>
+  <a data-go="timeline"><span class="dot" style="background:var(--mut)"></span>Visual Timeline</a>
+  <h3>Phases</h3>
+  <a data-go="pcc"><span class="dot" style="background:var(--c-imp)"></span>00 · Claude Code Power-Ups</a>
+  <a data-go="p0"><span class="dot" style="background:var(--c-nice)"></span>0 · Python Bridge</a>
+  <a data-go="p1"><span class="dot" style="background:var(--c-must)"></span>1 · GenAI Foundations</a>
+  <a data-go="p2"><span class="dot" style="background:var(--c-must)"></span>2 · Agentic AI Core</a>
+  <a data-go="p3"><span class="dot" style="background:var(--c-must)"></span>3 · Evals &amp; Guardrails</a>
+  <a data-go="p4"><span class="dot" style="background:var(--c-must)"></span>4 · Production &amp; LLMOps</a>
+  <a data-go="p5"><span class="dot" style="background:var(--c-opt)"></span>5 · Coding Agents</a>
+  <h3>Reference</h3>
+  <a data-go="matrix"><span class="dot" style="background:var(--mut)"></span>Coverage Matrix</a>
+  <a data-go="resources"><span class="dot" style="background:var(--mut)"></span>Resource Library</a>
+  <a data-go="projects"><span class="dot" style="background:var(--mut)"></span>Portfolio Projects</a>
+</nav>
+<div class="backdrop" id="bk"></div>
+
+<main id="main">
+
+<!-- ════════ OVERVIEW ════════ -->
+<section class="page" id="overview">
+  <h1>Backend Engineer → <span class="grad-txt">AI Engineer</span></h1>
+  <p class="sub">A self-paced plan built from 3 cheap Udemy courses + free gap-fillers — replicating ~90% of two $2,200–2,500 Maven cohorts at ~2% of the cost. Tuned for an external job switch with a portfolio that leans on your Temporal / distributed-systems edge.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="n">12–14</div><div class="l">weeks</div></div>
+    <div class="stat"><div class="n">~190h</div><div class="l">total effort</div></div>
+    <div class="stat"><div class="n">$50–80</div><div class="l">course cost</div></div>
+    <div class="stat"><div class="n">7</div><div class="l">portfolio projects</div></div>
+  </div>
+
+  <div class="legend">
+    <span class="pp must">MUST-MASTER</span>
+    <span class="pp imp">IMPORTANT</span>
+    <span class="pp nice">NICE-TO-HAVE</span>
+    <span class="pp opt">OPTIONAL PHASE</span>
+  </div>
+
+  <div class="co note"><b>How priorities were set</b>2026 market signal: AI Engineer is LinkedIn's #1 fastest-growing US role (+143% YoY postings). Hiring filters on <b>evals, observability, MCP, LangGraph, RAG quality, and production deployment</b> — not model training. That's where the orange lives.</div>
+
+  <h2>Phases — tap to open</h2>
+  <div class="grid g2">
+    <div class="card tap e-go" onclick="go('pcc')"><div class="meta">DAYS 1–4 · ~10H</div><h4>Phase 00 · Claude Code Power-Ups</h4><p>MCP &amp; connectors, skills, hooks, subagents, plugins — close the extensibility gap in the tool you already drive daily.</p></div>
+    <div class="card tap e-te" onclick="go('p0')"><div class="meta">WEEK 0–1 · ~15H</div><h4>Phase 0 · Python Bridge</h4><p>Idiomatic async Python + Pydantic for a JVM dev. Working fluency only — don't over-invest.</p></div>
+    <div class="card tap e-or" onclick="go('p1')"><div class="meta">WEEKS 1–4 · ~50H</div><h4>Phase 1 · GenAI Foundations</h4><p>LLM internals, prompting, structured outputs, RAG + vector DBs, QLoRA. Spine: Udemy LLM Engineering.</p></div>
+    <div class="card tap e-or" onclick="go('p2')"><div class="meta">WEEKS 5–8 · ~45H</div><h4>Phase 2 · Agentic AI Core</h4><p>LangGraph, OpenAI Agents SDK, CrewAI, MCP, multi-agent patterns. Spine: Udemy Agentic course.</p></div>
+    <div class="card tap e-or" onclick="go('p3')"><div class="meta">WEEKS 8–9 · ~20H</div><h4>Phase 3 · Evals &amp; Guardrails</h4><p>LLM-as-judge, RAGAS, Langfuse tracing, prompt-injection defense. The single biggest hiring signal.</p></div>
+    <div class="card tap e-or" onclick="go('p4')"><div class="meta">WEEKS 10–12 · ~35H</div><h4>Phase 4 · Production &amp; LLMOps</h4><p>AWS Bedrock, Terraform, CI/CD, serving (vLLM literacy). Spine: Udemy Production track.</p></div>
+    <div class="card tap e-pu" onclick="go('p5')"><div class="meta">WEEKS 13–14 · ~16H · OPTIONAL</div><h4>Phase 5 · Coding Agents</h4><p>Claude Code, sub-agents, swarms. Trendy productivity layer — do it while applying.</p></div>
+  </div>
+
+  <h2>Reference</h2>
+  <div class="grid g3">
+    <div class="card tap e-go" onclick="go('matrix')"><h4>Coverage Matrix</h4><p>28 topics × market priority × where each is covered.</p></div>
+    <div class="card tap e-go" onclick="go('resources')"><h4>Resource Library</h4><p>All paid-but-cheap + free links in one place.</p></div>
+    <div class="card tap e-pu" onclick="go('projects')"><h4>Portfolio Projects</h4><p>6 projects incl. your signature durable orchestrator.</p></div>
+  </div>
+
+  <div class="co gotcha"><b>What to skip</b>Deep RLHF/DPO, voice agents, AutoGen depth, Google ADK, A2A internals, pretraining math. Learn on-demand if a JD asks. Certificates alone carry little weight — employers pay 19–23% premiums for demonstrated skills vs 9–11% for certs. Ship projects.</div>
+</section>
+
+<!-- ════════ TIMELINE ════════ -->
+<section class="page" id="timeline">
+  <h1>Visual <span class="grad-txt">Timeline</span></h1>
+  <p class="sub">Seven phases over 12–14 weeks at ~12–15 h/week. Edge color = market priority. Tap any phase card to open its page.</p>
+
+  <div class="svgwrap">
+  <svg viewBox="0 0 520 925" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roadmap timeline">
+    <defs>
+      <linearGradient id="gOr" x1="0" y1="120" x2="1" y2="121"><stop offset="0" stop-color="#d65b4d"/><stop offset="1" stop-color="#a93428"/></linearGradient>
+      <linearGradient id="gTe" x1="0" y1="120" x2="1" y2="121"><stop offset="0" stop-color="#56ab72"/><stop offset="1" stop-color="#2e7d4a"/></linearGradient>
+      <linearGradient id="gGo" x1="0" y1="120" x2="1" y2="121"><stop offset="0" stop-color="#d9a83f"/><stop offset="1" stop-color="#a3781a"/></linearGradient>
+      <linearGradient id="gPu" x1="0" y1="120" x2="1" y2="121"><stop offset="0" stop-color="#6b96d6"/><stop offset="1" stop-color="#3c63a8"/></linearGradient>
+      <linearGradient id="gSpine" x1="0" y1="120" x2="0" y2="121"><stop offset="0" stop-color="#56ab72"/><stop offset=".55" stop-color="#c2483a"/><stop offset="1" stop-color="#3c63a8"/></linearGradient>
+      <linearGradient id="gImpSvg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9a83f"/><stop offset="1" stop-color="#a3781a"/></linearGradient>
+      <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#7d8aa0"/></marker>
+    </defs>
+    <line x1="42" y1="28" x2="42" y2="875" stroke="url(#gSpine)" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- P00 -->
+    <circle cx="42" cy="62" r="9" fill="url(#gImpSvg)"/>
+    <g onclick="go('pcc')"><rect class="svgcard" x="72" y="22" width="430" height="86" rx="14"/>
+      <rect x="72" y="22" width="6" height="86" rx="3" fill="url(#gImpSvg)"/>
+      <text x="92" y="48" class="st" font-size="14">Phase 00 · Claude Code Power-Ups</text>
+      <text x="92" y="68" class="sm" font-size="10.5">DAYS 1–4 · ~10h · IMPORTANT · free Anthropic + DL.AI</text>
+      <text x="92" y="88" class="sm" font-size="10.5">MCP &amp; connectors · skills · hooks · subagents · plugins</text>
+      <text x="455" y="50" class="sm" font-size="9.5" text-anchor="end">10h</text></g>
+
+
+    <!-- P0 -->
+    <circle cx="42" cy="182" r="9" fill="url(#gTe)"/>
+    <g onclick="go('p0')"><rect class="svgcard" x="72" y="142" width="430" height="86" rx="14"/>
+      <rect x="72" y="142" width="6" height="86" rx="3" fill="url(#gTe)"/>
+      <text x="92" y="168" class="st" font-size="14">Phase 0 · Python Bridge</text>
+      <text x="92" y="188" class="sm" font-size="10.5">WEEK 0–1 · ~15h · warm-up</text>
+      <text x="92" y="208" class="sm" font-size="10.5">async · Pydantic · uv · httpx · Jupyter</text>
+      <text x="455" y="170" class="sm" font-size="9.5" text-anchor="end">15h</text></g>
+
+    <!-- P1 -->
+    <circle cx="42" cy="302" r="9" fill="url(#gOr)"/>
+    <g onclick="go('p1')"><rect class="svgcard" x="72" y="262" width="430" height="86" rx="14"/>
+      <rect x="72" y="262" width="6" height="86" rx="3" fill="url(#gOr)"/>
+      <text x="92" y="288" class="st" font-size="14">Phase 1 · GenAI Foundations</text>
+      <text x="92" y="308" class="sm" font-size="10.5">WEEKS 1–4 · ~50h · MUST · Udemy: LLM Engineering</text>
+      <text x="92" y="328" class="sm" font-size="10.5">LLMs · prompting · RAG · vector DBs · QLoRA</text>
+      <text x="455" y="290" class="sm" font-size="9.5" text-anchor="end">2 projects</text></g>
+
+    <!-- P2 -->
+    <circle cx="42" cy="422" r="9" fill="url(#gOr)"/>
+    <g onclick="go('p2')"><rect class="svgcard" x="72" y="382" width="430" height="86" rx="14"/>
+      <rect x="72" y="382" width="6" height="86" rx="3" fill="url(#gOr)"/>
+      <text x="92" y="408" class="st" font-size="14">Phase 2 · Agentic AI Core</text>
+      <text x="92" y="428" class="sm" font-size="10.5">WEEKS 5–8 · ~45h · MUST · Udemy: Agentic AI</text>
+      <text x="92" y="448" class="sm" font-size="10.5">LangGraph · Agents SDK · CrewAI · MCP · multi-agent</text>
+      <text x="455" y="410" class="sm" font-size="9.5" text-anchor="end">2 projects</text></g>
+
+    <!-- P3 -->
+    <circle cx="42" cy="542" r="9" fill="url(#gOr)"/>
+    <g onclick="go('p3')"><rect class="svgcard" x="72" y="502" width="430" height="86" rx="14"/>
+      <rect x="72" y="502" width="6" height="86" rx="3" fill="url(#gOr)"/>
+      <text x="92" y="528" class="st" font-size="14">Phase 3 · Evals, Observability, Guardrails</text>
+      <text x="92" y="548" class="sm" font-size="10.5">WEEKS 8–9 · ~20h · MUST · free DL.AI + RAGAS + Langfuse</text>
+      <text x="92" y="568" class="sm" font-size="10.5">★ biggest hiring signal in 2026 interviews</text>
+      <text x="455" y="530" class="sm" font-size="9.5" text-anchor="end">extends #4</text></g>
+
+    <!-- P4 -->
+    <circle cx="42" cy="662" r="9" fill="url(#gOr)"/>
+    <g onclick="go('p4')"><rect class="svgcard" x="72" y="622" width="430" height="86" rx="14"/>
+      <rect x="72" y="622" width="6" height="86" rx="3" fill="url(#gOr)"/>
+      <text x="92" y="648" class="st" font-size="14">Phase 4 · Production &amp; LLMOps</text>
+      <text x="92" y="668" class="sm" font-size="10.5">WEEKS 10–12 · ~35h · MUST · Udemy: Production track</text>
+      <text x="92" y="688" class="sm" font-size="10.5">Bedrock · Terraform · CI/CD · Langfuse · vLLM literacy</text>
+      <text x="455" y="650" class="sm" font-size="9.5" text-anchor="end">capstone</text></g>
+
+    <!-- P5 -->
+    <circle cx="42" cy="782" r="9" fill="url(#gPu)"/>
+    <g onclick="go('p5')"><rect class="svgcard" x="72" y="742" width="430" height="86" rx="14"/>
+      <rect x="72" y="742" width="6" height="86" rx="3" fill="url(#gPu)"/>
+      <text x="92" y="768" class="st" font-size="14">Phase 5 · Coding Agents (optional)</text>
+      <text x="92" y="788" class="sm" font-size="10.5">WEEKS 13–14 · ~16h · Udemy: AI Coder</text>
+      <text x="92" y="808" class="sm" font-size="10.5">Claude Code · sub-agents · swarms · Agent SDK</text>
+      <text x="455" y="770" class="sm" font-size="9.5" text-anchor="end">while applying</text></g>
+
+    <!-- finish -->
+    <line x1="42" y1="875" x2="42" y2="892" stroke="#7d8aa0" stroke-width="3.5" marker-end="url(#arr)"/>
+    <text x="72" y="895" class="st" font-size="13">→ Apply with 6 shipped, deployed, evaluated projects</text>
+  </svg>
+  </div>
+
+  <div class="co analogy"><b>Analogy</b>Think of it like a Temporal workflow: Phases 1–2 are your activities, Phase 3 is your retry/observability policy, Phase 4 is the deployment of the worker fleet. Skipping Phase 3 is shipping workflows with no metrics — it works until an interviewer asks "how do you know it works?"</div>
+</section>
+
+
+<!-- ════════ PHASE 00 ════════ -->
+<section class="page" id="pcc">
+  <span class="pp imp">IMPORTANT · QUICK WIN</span>
+  <h1>Phase 00 · <span class="grad-txt">Claude Code Power-Ups</span></h1>
+  <p class="sub">Days 1–4 · ~10h. You've driven Claude Code daily for months — this closes the extensibility gap: MCP &amp; connectors, skills, hooks, subagents, plugins. It compounds across every later phase and builds MCP intuition before Phase 2 formalizes it.</p>
+
+  <h2>Topics &amp; depth</h2>
+  <div class="card">
+    <div class="top-row"><span><span class="pd must"></span><b>MCP servers &amp; connectors</b></span><span class="d">deep — claude mcp add, local/project/user scopes, remote connectors &amp; auth</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Custom slash commands + CLAUDE.md hygiene</b></span><span class="d">hands-on — .claude/commands, $ARGUMENTS</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Skills</b></span><span class="d">hands-on — SKILL.md anatomy, personal vs project, auto-invocation</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Subagents</b></span><span class="d">hands-on — .claude/agents, scoped tools, isolated context</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Hooks</b></span><span class="d">hands-on — PreToolUse/PostToolUse/Stop, deterministic guardrails</span></div>
+    <div class="top-row"><span><span class="pd nice"></span><b>Plugins</b></span><span class="d">bundle commands + agents + hooks + MCP; marketplaces</span></div>
+  </div>
+
+  <div class="co note"><b>Day-by-day</b><b>Day 1</b> — MCP: add a GitHub + a Postgres server, exercise all three scopes, try a remote connector. <b>Day 2</b> — commands + skills: write a SKILL.md encoding your Kotlin/Temporal code conventions. <b>Day 3</b> — hooks + subagents: a PostToolUse auto-format hook + a code-review subagent. <b>Day 4</b> — plugins: bundle everything into one personal plugin.</div>
+
+  <h2>Resources</h2>
+  <div class="res"><div class="ic or">AN</div><div class="bd"><b>Anthropic Academy — Claude Code in Action <span class="tagfree">FREE + CERT</span></b><div class="meta">Official · ~3–4h · 4.8★</div><div class="foc">Focus → context management · custom commands · extending with hooks · MCP &amp; external-service integration</div></div><a class="btn" href="https://anthropic.skilljar.com/claude-code-in-action" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>DeepLearning.AI — Claude Code: A Highly Agentic Coding Assistant <span class="tagfree">FREE</span></b><div class="meta">With Anthropic (Elie Schoppik) · ~1.5h</div><div class="foc">Focus → CLAUDE.md memory · plan/thinking modes · parallel sessions &amp; git worktrees · GitHub integration · Playwright/Figma MCP in action</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DC</div><div class="bd"><b>Claude Code Docs — extensibility set <span class="tagfree">FREE</span></b><div class="meta">Hands-on while reading · ~3h</div><div class="foc">Focus → /mcp · then read the /skills, /hooks-guide, /sub-agents, /plugins, /slash-commands pages — each with a live experiment</div></div><a class="btn te" href="https://docs.claude.com/en/docs/claude-code/mcp" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">AN</div><div class="bd"><b>Anthropic Academy — Skills &amp; Subagents mini-courses <span class="tagfree">FREE</span></b><div class="meta">~1h each · newer catalog additions</div><div class="foc">Focus → building &amp; sharing Skills · subagent configuration — pick up after the docs pass if you want structure</div></div><a class="btn te" href="https://anthropic.skilljar.com/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">AN</div><div class="bd"><b>Anthropic Engineering — Claude Code Best Practices <span class="tagfree">FREE</span></b><div class="meta">Blog post · ~30 min</div><div class="foc">Focus → CLAUDE.md patterns · explore-plan-code-commit · test-driven loops · multi-Claude workflows</div></div><a class="btn te" href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank">Open →</a></div>
+
+  <div class="co indepth"><b>Project #0 · personal plugin</b>A repo containing 1 skill (your coding conventions), 2 slash commands, 1 PostToolUse formatter hook, 1 reviewer subagent, and an MCP config. Use it on every project in this roadmap — a small portfolio piece that signals agentic-tooling literacy. ~3h.</div>
+  <div class="co gotcha"><b>Timebox it</b>Four days, hard stop. Don't rabbit-hole into elaborate plugin engineering — swarm orchestration and the Claude Agent SDK return in Phase 5. The goal here is fluency, not artistry.</div>
+  <div class="pager"></div>
+</section>
+
+<!-- ════════ PHASE 0 ════════ -->
+<section class="page" id="p0">
+  <span class="pp nice">WARM-UP</span>
+  <h1>Phase 0 · <span class="grad-txt">Python Bridge</span></h1>
+  <p class="sub">Week 0–1 · ~15h. You're a senior JVM dev — you need <i>idiomatic</i> Python, not CS fundamentals. Working fluency is the exit bar.</p>
+
+  <h2>Topics &amp; depth</h2>
+  <div class="card">
+    <div class="top-row"><span><span class="pd must"></span><b>async / await + asyncio</b></span><span class="d">deep — every agent framework is async-first</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>Type hints + Pydantic</b></span><span class="d">deep — structured outputs run on it</span></div>
+    <div class="top-row"><span><span class="pd nice"></span><b>uv + virtualenvs + Jupyter</b></span><span class="d">setup fluency</span></div>
+    <div class="top-row"><span><span class="pd nice"></span><b>Decorators, context managers, httpx</b></span><span class="d">read/write comfort</span></div>
+    <div class="top-row"><span><span class="pd nice"></span><b>pandas / numpy</b></span><span class="d">light — skim only</span></div>
+  </div>
+
+  <div class="co analogy"><b>Analogy</b>Pydantic ≈ Kotlin data classes + Bean Validation in one. <code>async def</code> ≈ suspend functions with an explicit event loop. Decorators ≈ annotations that actually execute. Map, don't relearn.</div>
+  <div class="co gotcha"><b>Gotcha</b>Don't spend 3 weeks "finishing Python first." Ed Donner's courses teach tooling setup in-line; start Phase 1 the moment you can read async code.</div>
+
+  <h2>Resources</h2>
+  <div class="res"><div class="ic te">PY</div><div class="bd"><b>Official Python Tutorial <span class="tagfree">FREE</span></b><div class="meta">Skim ch. 4–9 + asyncio docs · ~6h</div><div class="foc">Focus → ch.4–5 control flow &amp; data structures · ch.9 classes · asyncio: coroutines, tasks, gather() · comprehensions</div></div><a class="btn te" href="https://docs.python.org/3/tutorial/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">PD</div><div class="bd"><b>Pydantic Docs — Models &amp; Validation <span class="tagfree">FREE</span></b><div class="meta">Models, validators, settings · ~3h</div><div class="foc">Focus → BaseModel &amp; nested models · field/model validators · BaseSettings · JSON-schema export (this powers structured outputs)</div></div><a class="btn te" href="https://docs.pydantic.dev/latest/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic or">U1</div><div class="bd"><b>Ed Donner setup weeks (inside Udemy LLM Engineering) <span class="tagpaid">~$15</span></b><div class="meta">uv, Cursor, environment setup · counted in Phase 1</div></div><a class="btn" href="https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models" target="_blank">Open →</a></div>
+
+  <div class="co indepth"><b>Project #1 · warm-up</b>Port a small Java/Kotlin utility you've written (e.g., a Temporal payload inspector or rate-limit calculator) to a Python CLI with type hints + Pydantic config. Publish to GitHub with a clean README. ~4h.</div>
+  <div class="pager"></div>
+</section>
+
+<!-- ════════ PHASE 1 ════════ -->
+<section class="page" id="p1">
+  <span class="pp must">MUST-MASTER</span>
+  <h1>Phase 1 · <span class="grad-txt">GenAI Foundations</span></h1>
+  <p class="sub">Weeks 1–4 · ~50h. The GenAI engineering spine: Udemy "LLM Engineering" end-to-end (33.5h video, 8 projects, refreshed for 2026), plus two free RAG-depth courses.</p>
+
+  <h2>Topics &amp; depth</h2>
+  <div class="card">
+    <div class="top-row"><span><span class="pd must"></span><b>Transformers, tokenization, context windows</b></span><span class="d">deep intuition, no math derivations</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>Prompt engineering (system, few-shot, CoT)</b></span><span class="d">deep + reusable templates</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>Structured outputs / function calling</b></span><span class="d">deep — Pydantic schemas everywhere</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>RAG: chunking, embeddings, vector DBs</b></span><span class="d">deep + build from scratch once</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>Advanced RAG: hybrid search, reranking</b></span><span class="d">deep — gap-filled by free courses</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Fine-tuning: LoRA / QLoRA</b></span><span class="d">do it once, discuss confidently</span></div>
+    <div class="top-row"><span><span class="pd nice"></span><b>Multimodal, open-source models (HF)</b></span><span class="d">survey level</span></div>
+  </div>
+
+  <h2>Resources</h2>
+  <div class="res"><div class="ic or">U1</div><div class="bd"><b>LLM Engineering: Master AI &amp; LLMs — Ed Donner <span class="tagpaid">~$15 ON SALE</span></b><div class="meta">33.5h · 4.7★ (36k ratings) · 8 projects · your spine</div></div><a class="btn" href="https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>DeepLearning.AI — Retrieval Augmented Generation <span class="tagfree">FREE</span></b><div class="meta">Hybrid search, Weaviate, 5 modules · ~6h</div><div class="foc">Focus → chunking strategies · hybrid search (BM25 + dense fusion) · metadata filtering · query rewriting · production retrieval patterns</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/retrieval-augmented-generation" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>DeepLearning.AI — Building &amp; Evaluating Advanced RAG <span class="tagfree">FREE</span></b><div class="meta">Sentence-window, auto-merging, reranking, RAG triad · ~2h</div><div class="foc">Focus → sentence-window retrieval · auto-merging retrieval · cross-encoder reranking · RAG triad: context relevance, groundedness, answer relevance</div></div><a class="btn te" href="https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">HF</div><div class="bd"><b>Hugging Face LLM Course <span class="tagfree">FREE</span></b><div class="meta">Reference for tokenizers/transformers depth · dip in as needed</div><div class="foc">Focus → ch.1–2 transformer anatomy + BPE tokenizers · ch.3 fine-tuning a model — skip the classic-NLP chapters</div></div><a class="btn te" href="https://huggingface.co/learn/llm-course/chapter1/1" target="_blank">Open →</a></div>
+
+  <div class="co note"><b>Depth guidance</b>RAG is the #1 interview topic for product-company AI roles. Be able to whiteboard: chunking tradeoffs → embedding choice → hybrid (BM25+dense) → reranker → eval loop. Fine-tuning: one QLoRA run on a small model is enough; deep RLHF/DPO is deferred.</div>
+  <div class="co indepth"><b>Projects #2 &amp; #3</b><b>#2 Production RAG knowledge-worker:</b> hybrid retrieval + reranking + RAGAS eval harness over a real corpus (~12h). <b>#3 Multimodal support assistant:</b> function calling + tools + Gradio UI (~8h). Both deployed, both on GitHub with eval numbers in the README.</div>
+  <div class="pager"></div>
+</section>
+
+<!-- ════════ PHASE 2 ════════ -->
+<section class="page" id="p2">
+  <span class="pp must">MUST-MASTER</span>
+  <h1>Phase 2 · <span class="grad-txt">Agentic AI Core</span></h1>
+  <p class="sub">Weeks 5–8 · ~45h. The agentic spine: Udemy "Complete Agentic AI Engineering" (17h, 8 projects) covering all major frameworks + MCP, with free official-source gap-fillers.</p>
+
+  <h2>Topics &amp; depth</h2>
+  <div class="card">
+    <div class="top-row"><span><span class="pd must"></span><b>Agentic design patterns</b></span><span class="d">deep — Anthropic's essay is canon</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>LangGraph: state, checkpointing, memory</b></span><span class="d">deepest — the market leader</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>MCP: servers, clients, tools</b></span><span class="d">deep — 97M+ monthly SDK downloads, table stakes</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>Multi-agent systems + handoffs</b></span><span class="d">deep + failure modes</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>OpenAI Agents SDK (guardrails, async)</b></span><span class="d">solid working knowledge</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>CrewAI · memory systems</b></span><span class="d">build one crew</span></div>
+    <div class="top-row"><span><span class="pd nice"></span><b>AutoGen · Google ADK · A2A</b></span><span class="d">awareness only</span></div>
+  </div>
+
+  <h2>Resources</h2>
+  <div class="res"><div class="ic or">U2</div><div class="bd"><b>The Complete Agentic AI Engineering Course — Ed Donner <span class="tagpaid">~$15 ON SALE</span></b><div class="meta">17h · 4.7★ (41k ratings) · MCP capstone w/ 6 servers, 44 tools</div></div><a class="btn" href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">LC</div><div class="bd"><b>LangChain Academy — Intro to LangGraph <span class="tagfree">FREE</span></b><div class="meta">Official, hands-on; do alongside U2's LangGraph week · ~6h</div><div class="foc">Focus → state graphs &amp; reducers · checkpointing/persistence · short- vs long-term memory · human-in-the-loop breakpoints · streaming</div></div><a class="btn te" href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">HF</div><div class="bd"><b>Hugging Face MCP Course <span class="tagfree">FREE + CERT</span></b><div class="meta">Build real MCP servers/clients · ~5h</div><div class="foc">Focus → MCP architecture: hosts/clients/servers · building a server (tools, resources, prompts) · Gradio integration · deployment unit</div></div><a class="btn te" href="https://huggingface.co/learn/mcp-course" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">AN</div><div class="bd"><b>Anthropic — Building Effective Agents <span class="tagfree">FREE</span></b><div class="meta">The canonical patterns essay · 1h read, reread before interviews</div><div class="foc">Focus → workflows-vs-agents distinction · prompt chaining · routing · parallelization · orchestrator-workers · evaluator-optimizer</div></div><a class="btn te" href="https://www.anthropic.com/research/building-effective-agents" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">HF</div><div class="bd"><b>Hugging Face Agents Course <span class="tagfree">FREE + CERT</span></b><div class="meta">smolagents, LlamaIndex, LangGraph breadth · optional ~8h</div><div class="foc">Focus → unit 1 thought-action-observation loop · smolagents unit · final GAIA benchmark project — skip its LangGraph unit (covered above)</div></div><a class="btn te" href="https://huggingface.co/learn/agents-course/en/unit0/introduction" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">MS</div><div class="bd"><b>Microsoft — AI Agents for Beginners <span class="tagfree">FREE</span></b><div class="meta">12 lessons; good AutoGen/Semantic Kernel awareness</div><div class="foc">Focus → agentic design patterns · planning lesson · multi-agent lesson · metacognition — skim AutoGen/Semantic Kernel for awareness only</div></div><a class="btn te" href="https://github.com/microsoft/ai-agents-for-beginners" target="_blank">Open →</a></div>
+
+  <div class="co analogy"><b>Your unfair advantage</b>LangGraph checkpointing is Temporal event-sourcing with a smaller vocabulary. Durable state, replay, retries, human-in-the-loop signals — you've run this at 500K-workflow scale. Most AI engineers are learning these concepts for the first time; you're just learning the API.</div>
+  <div class="co indepth"><b>Projects #4 &amp; #5</b><b>#4 Durable multi-agent orchestrator (SIGNATURE):</b> deep-research-style multi-agent system in LangGraph with explicit durability, retries, and state recovery; write a blog post comparing LangGraph checkpointing vs Temporal durability (~15h). <b>#5 MCP server + client:</b> expose a real tool (e.g., SQL agent over a Postgres schema) with input guardrails (~6h).</div>
+  <div class="pager"></div>
+</section>
+
+<!-- ════════ PHASE 3 ════════ -->
+<section class="page" id="p3">
+  <span class="pp must">MUST-MASTER</span>
+  <h1>Phase 3 · <span class="grad-txt">Evals, Observability &amp; Guardrails</span></h1>
+  <p class="sub">Weeks 8–9 · ~20h. The gap both Maven cohorts charge $2k+ to teach and the Udemy courses under-serve — yet it's free to learn and the single strongest interview differentiator.</p>
+
+  <h2>Topics &amp; depth</h2>
+  <div class="card">
+    <div class="top-row"><span><span class="pd must"></span><b>Eval design: golden datasets, LLM-as-judge</b></span><span class="d">deep — build one, defend it</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>RAG evals: faithfulness, context precision/recall</b></span><span class="d">deep via RAGAS</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>Tracing &amp; observability (Langfuse/LangSmith)</b></span><span class="d">deep — wire into every project</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Guardrails: prompt injection, PII, jailbreaks</b></span><span class="d">solid + OWASP vocabulary</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Eval gates in CI/CD</b></span><span class="d">one working pipeline</span></div>
+  </div>
+
+  <h2>Resources</h2>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>DeepLearning.AI — Evaluating AI Agents <span class="tagfree">FREE</span></b><div class="meta">Built with Arize; trajectory + output evals · ~3h</div><div class="foc">Focus → trajectory vs final-output evals · building golden datasets · LLM-as-judge calibration · Phoenix tracing</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/evaluating-ai-agents" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">RG</div><div class="bd"><b>RAGAS Documentation <span class="tagfree">FREE</span></b><div class="meta">Faithfulness, precision/recall metrics · ~3h + practice</div><div class="foc">Focus → faithfulness · answer relevancy · context precision/recall · synthetic test-set generation · wiring scores into CI</div></div><a class="btn te" href="https://docs.ragas.io/en/stable/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">LF</div><div class="bd"><b>Langfuse Docs <span class="tagfree">FREE TIER</span></b><div class="meta">Open-source tracing/evals; 50k observations/mo free</div><div class="foc">Focus → tracing SDK: spans &amp; generations · prompt management · datasets &amp; experiments · LLM-as-judge evaluators · cost tracking</div></div><a class="btn te" href="https://langfuse.com/docs" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">OW</div><div class="bd"><b>OWASP Top 10 for LLM Applications <span class="tagfree">FREE</span></b><div class="meta">Used as an interview screen in 2026 · 2h read</div><div class="foc">Focus → LLM01 prompt injection · LLM02 insecure output handling · LLM06 sensitive-info disclosure · the mitigations tables</div></div><a class="btn te" href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>DeepLearning.AI — Red Teaming &amp; Guardrails short courses <span class="tagfree">FREE</span></b><div class="meta">Browse the catalog; ~1.5h each</div><div class="foc">Focus → jailbreak taxonomies · automated red-teaming · validator-based guardrails (Guardrails AI / NeMo style)</div></div><a class="btn te" href="https://www.deeplearning.ai/courses" target="_blank">Open →</a></div>
+
+  <div class="co gotcha"><b>Why this phase is orange</b>Recruiters in 2026 call eval fluency "the single biggest signal of real LLM experience." Anyone can demo an agent; few can show a regression-tested one. 20 hours here outperforms 50 hours of another framework.</div>
+  <div class="co indepth"><b>Extends project #4</b>Add to your orchestrator: LLM-as-judge eval suite, Langfuse tracing on every agent step, and a guardrail layer (PII filter + injection detection). Publish the eval dashboard screenshot in the README.</div>
+  <div class="pager"></div>
+</section>
+
+<!-- ════════ PHASE 4 ════════ -->
+<section class="page" id="p4">
+  <span class="pp must">MUST-MASTER</span>
+  <h1>Phase 4 · <span class="grad-txt">Production &amp; LLMOps</span></h1>
+  <p class="sub">Weeks 10–12 · ~35h. Spine: Udemy "Generative &amp; Agentic AI in Production" — deploys 4 products across clouds (deepest on AWS). This converts your DevOps gap into a strength.</p>
+
+  <h2>Topics &amp; depth</h2>
+  <div class="card">
+    <div class="top-row"><span><span class="pd must"></span><b>AWS for AI: Bedrock, Lambda, SageMaker, S3 vectors</b></span><span class="d">deep — the safest cloud bet</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>Docker + one-cloud deployment</b></span><span class="d">deep — every project containerized</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Terraform IaC + GitHub Actions CI/CD</b></span><span class="d">one real pipeline</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Cost optimization, caching, prompt caching</b></span><span class="d">instrument + discuss</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Serving: vLLM, quantization, KV cache, batching</b></span><span class="d">conceptual fluency for interviews</span></div>
+    <div class="top-row"><span><span class="pd nice"></span><b>Kubernetes</b></span><span class="d">literacy — pods/services, deploy once</span></div>
+  </div>
+
+  <h2>Resources</h2>
+  <div class="res"><div class="ic or">U3</div><div class="bd"><b>Generative &amp; Agentic AI in Production — Ed Donner <span class="tagpaid">~$15 ON SALE</span></b><div class="meta">4 weeks · Bedrock, Terraform, CI/CD, Langfuse, AgentCore</div></div><a class="btn" href="https://www.udemy.com/course/generative-and-agentic-ai-in-production" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>DeepLearning.AI — Fast &amp; Efficient LLM Inference with vLLM <span class="tagfree">FREE</span></b><div class="meta">PagedAttention, continuous batching, quantization · ~2h</div><div class="foc">Focus → PagedAttention · continuous batching · INT8/FP8 quantization tradeoffs · serving config &amp; throughput benchmarks</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/fast-and-efficient-llm-inference-with-vllm" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>DeepLearning.AI — Efficiently Serving LLMs <span class="tagfree">FREE</span></b><div class="meta">KV caching, batching, LoRAX · ~1.5h · defer if tight</div><div class="foc">Focus → KV-cache mechanics · batching strategies · multi-LoRA serving (LoRAX) — conceptual pass, no lab needed</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/efficiently-serving-llms" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">CH</div><div class="bd"><b>Chip Huyen — AI Engineering book companion repo <span class="tagfree">FREE</span></b><div class="meta">Production system design reference; book optional (~$45)</div><div class="foc">Focus → ch.4 evaluation methodology · ch.6 RAG &amp; agent architecture · ch.9 inference optimization · ch.10 app architecture notes</div></div><a class="btn te" href="https://github.com/chiphuyen/aie-book" target="_blank">Open →</a></div>
+
+  <div class="co note"><b>Depth guidance</b>You don't need infra-engineer depth: conceptual vLLM/TGI fluency + one Bedrock deployment + one Terraform'd CI/CD pipeline clears the interview bar. Your distributed-systems vocabulary (backpressure, idempotency, retries) already exceeds most candidates' here.</div>
+  <div class="co indepth"><b>Project #6 · capstone</b>Take your durable orchestrator fully to production on AWS: containerized, Terraform IaC, GitHub Actions CI/CD with eval gates, Langfuse monitoring, cost dashboard. This is the headline of your portfolio and résumé.</div>
+  <div class="pager"></div>
+</section>
+
+<!-- ════════ PHASE 5 ════════ -->
+<section class="page" id="p5">
+  <span class="pp opt">OPTIONAL</span>
+  <h1>Phase 5 · <span class="grad-txt">Coding Agents</span></h1>
+  <p class="sub">Weeks 13–14 · ~10–16h. Phase 00 already front-loaded MCP, skills, hooks and subagents — what remains here is the deep end: swarms, orchestrators, Ralph loops, and the Claude Agent SDK. Best done while applications are out; skip freely if interviews land early.</p>
+
+  <h2>Topics &amp; depth</h2>
+  <div class="card">
+    <div class="top-row"><span><span class="pd opt"></span><b>Claude Code: commands, checkpoints, MCP, Skills</b></span><span class="d">daily-driver fluency</span></div>
+    <div class="top-row"><span><span class="pd opt"></span><b>Sub-agents, swarms, orchestrators</b></span><span class="d">build one workflow</span></div>
+    <div class="top-row"><span><span class="pd opt"></span><b>Cursor / Codex / agentic IDE patterns</b></span><span class="d">awareness</span></div>
+  </div>
+
+  <h2>Resources</h2>
+  <div class="res"><div class="ic or">U4</div><div class="bd"><b>AI Coder: From Vibe Coder to Agentic Engineer <span class="tagpaid">~$15 ON SALE</span></b><div class="meta">16h · 4.7★ · Claude Code, swarms, Agent SDK</div></div><a class="btn" href="https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">AN</div><div class="bd"><b>Anthropic Academy <span class="tagfree">FREE</span></b><div class="meta">Official Claude / Claude Code / MCP courses</div><div class="foc">Focus → start with “Claude Code in Action” · then the MCP course · prompt-engineering track as filler</div></div><a class="btn te" href="https://anthropic.skilljar.com/" target="_blank">Open →</a></div>
+
+  <div class="co note"><b>Note</b>This makes you faster at everything else — but interviewers hire for Phases 1–4. Treat it as compounding interest, not principal.</div>
+  <div class="pager"></div>
+</section>
+
+<!-- ════════ MATRIX ════════ -->
+<section class="page" id="matrix">
+  <h1>Coverage <span class="grad-txt">Matrix</span></h1>
+  <p class="sub">28 topics × market priority × where each is covered. U1–U4 = the four Udemy courses. ●●● deep · ●● moderate · ● light · ○ absent. The free column fills whatever the paid spine misses.</p>
+  <div class="legend">
+    <span><span class="pd must"></span><span class="mono" style="font-size:11px">MUST</span></span>
+    <span><span class="pd imp"></span><span class="mono" style="font-size:11px">IMPORTANT</span></span>
+    <span><span class="pd nice"></span><span class="mono" style="font-size:11px">NICE-TO-HAVE</span></span>
+    <span><span class="pd opt"></span><span class="mono" style="font-size:11px">OPTIONAL</span></span>
+  </div>
+
+  <div class="tablewrap">
+  <table>
+    <tr><th>Topic</th><th>Priority</th><th>U1</th><th>U2</th><th>U3</th><th>U4</th><th>Free gap-filler</th></tr>
+    <tr><td>LLM fundamentals / tokenization</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://huggingface.co/learn/llm-course/chapter1/1" target="_blank">HF LLM Course</a></td></tr>
+    <tr><td>Prompt engineering</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d2">●●</span></td><td><a href="https://anthropic.skilljar.com/" target="_blank">Anthropic Academy</a></td></tr>
+    <tr><td>Structured outputs / tool calling</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d1">●</span></td><td><a href="https://github.com/openai/openai-cookbook" target="_blank">OpenAI Cookbook</a></td></tr>
+    <tr><td>RAG basics (chunking, embeddings)</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://www.deeplearning.ai/courses/retrieval-augmented-generation" target="_blank">DL.AI RAG</a></td></tr>
+    <tr><td>RAG advanced (hybrid, rerank, GraphRAG)</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag" target="_blank">DL.AI Advanced RAG</a></td></tr>
+    <tr><td>Vector databases</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://www.deeplearning.ai/courses/retrieval-augmented-generation" target="_blank">DL.AI RAG</a></td></tr>
+    <tr><td>Embeddings</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://huggingface.co/learn/llm-course/chapter1/1" target="_blank">HF LLM Course</a></td></tr>
+    <tr><td>Fine-tuning (LoRA / QLoRA / PEFT)</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://huggingface.co/learn/smol-course" target="_blank">HF smol-course</a></td></tr>
+    <tr><td>LangGraph</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">LangChain Academy</a></td></tr>
+    <tr><td>CrewAI</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://docs.crewai.com/" target="_blank">CrewAI docs</a></td></tr>
+    <tr><td>AutoGen</td><td><span class="pd nice"></span>Nice</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://github.com/microsoft/ai-agents-for-beginners" target="_blank">MS AI Agents</a></td></tr>
+    <tr><td>OpenAI Agents SDK</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://openai.github.io/openai-agents-python/" target="_blank">Official docs</a></td></tr>
+    <tr><td>Google ADK</td><td><span class="pd nice"></span>Nice</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://google.github.io/adk-docs/" target="_blank">ADK docs</a></td></tr>
+    <tr><td>MCP (Model Context Protocol)</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d2">●●</span></td><td><a href="https://huggingface.co/learn/mcp-course" target="_blank">HF MCP Course</a></td></tr>
+    <tr><td>A2A protocol</td><td><span class="pd nice"></span>Nice</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://a2a-protocol.org/" target="_blank">A2A spec</a></td></tr>
+    <tr><td>Multi-agent systems</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d2">●●</span></td><td><a href="https://huggingface.co/learn/agents-course/en/unit0/introduction" target="_blank">HF Agents Course</a></td></tr>
+    <tr><td>Agentic design patterns</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d1">●</span></td><td><a href="https://www.anthropic.com/research/building-effective-agents" target="_blank">Anthropic essay</a></td></tr>
+    <tr><td>Evals / LLM-as-judge</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://www.deeplearning.ai/courses/evaluating-ai-agents" target="_blank">DL.AI Evaluating Agents</a> + <a href="https://docs.ragas.io/en/stable/" target="_blank">RAGAS</a></td></tr>
+    <tr><td>Observability (Langfuse / LangSmith)</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://langfuse.com/docs" target="_blank">Langfuse docs</a></td></tr>
+    <tr><td>Guardrails / prompt injection</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">OWASP LLM Top 10</a></td></tr>
+    <tr><td>Deployment &amp; serving (vLLM / cloud)</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d1">●</span></td><td><a href="https://www.deeplearning.ai/courses/fast-and-efficient-llm-inference-with-vllm" target="_blank">DL.AI vLLM</a></td></tr>
+    <tr><td>LLMOps / CI-CD for AI</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d1">●</span></td><td><a href="https://maven.com/swirl-ai/end-to-end-ai-engineering" target="_blank">Maven free lightning lessons</a></td></tr>
+    <tr><td>Cost optimization / caching</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d1">●</span></td><td>Provider docs (prompt caching)</td></tr>
+    <tr><td>Multimodal</td><td><span class="pd nice"></span>Nice</td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://www.deeplearning.ai/courses" target="_blank">DL.AI catalog</a></td></tr>
+    <tr><td>Voice agents</td><td><span class="pd nice"></span>Nice</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://www.deeplearning.ai/courses" target="_blank">DL.AI catalog</a> — defer</td></tr>
+    <tr><td>Context engineering</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d2">●●</span></td><td><a href="https://www.anthropic.com/engineering" target="_blank">Anthropic engineering blog</a></td></tr>
+    <tr><td>Memory systems</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d1">●</span></td><td><a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">LangGraph memory modules</a></td></tr>
+    <tr><td>Production AI system design</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d1">●</span></td><td><a href="https://github.com/chiphuyen/aie-book" target="_blank">Chip Huyen AIE repo</a></td></tr>
+  </table>
+  </div>
+
+  <div class="co note"><b>Reading the matrix</b>U1+U2+U3 together hit every Must topic at ●● or better except four: advanced RAG, evals rigor, guardrails depth, and self-hosted serving — each fully covered by a free resource. U4 adds nothing irreplaceable; it's a productivity multiplier.</div>
+  <div class="pager"></div>
+</section>
+
+<!-- ════════ RESOURCES ════════ -->
+<section class="page" id="resources">
+  <h1>Resource <span class="grad-txt">Library</span></h1>
+  <p class="sub">Everything in one place. Total paid spend: ~$50–80 (3–4 Udemy courses on sale). Never pay Udemy list price — sales run near-constantly.</p>
+
+  <h2>Paid spine — cheap on sale</h2>
+  <div class="res"><div class="ic or">U1</div><div class="bd"><b>LLM Engineering: Master AI &amp; LLMs <span class="tagpaid">~$15</span></b><div class="meta">Ed Donner · 33.5h · 4.7★ · Phase 1 spine</div></div><a class="btn" href="https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic or">U2</div><div class="bd"><b>The Complete Agentic AI Engineering Course <span class="tagpaid">~$15</span></b><div class="meta">Ed Donner · 17h · 4.7★ · Phase 2 spine</div></div><a class="btn" href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic or">U3</div><div class="bd"><b>Generative &amp; Agentic AI in Production <span class="tagpaid">~$15</span></b><div class="meta">Ed Donner · ~16h · Phase 4 spine</div></div><a class="btn" href="https://www.udemy.com/course/generative-and-agentic-ai-in-production" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic pu">U4</div><div class="bd"><b>AI Coder: Vibe Coder → Agentic Engineer <span class="tagpaid">~$15 · OPTIONAL</span></b><div class="meta">Ed Donner · 16h · Phase 5</div></div><a class="btn" href="https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer" target="_blank">Open →</a></div>
+
+  <h2>Free — DeepLearning.AI</h2>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>Evaluating AI Agents <span class="tagfree">FREE</span></b><div class="meta">Phase 3 · golden datasets, LLM-as-judge calibration, trajectory evals</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/evaluating-ai-agents" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>Retrieval Augmented Generation <span class="tagfree">FREE</span></b><div class="meta">Phase 1 · chunking, hybrid search (BM25+dense), metadata filtering, query rewriting</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/retrieval-augmented-generation" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>Building &amp; Evaluating Advanced RAG <span class="tagfree">FREE</span></b><div class="meta">Phase 1 · sentence-window + auto-merging retrieval, reranking, RAG-triad evals</div></div><a class="btn te" href="https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>MCP: Build Rich-Context AI Apps with Anthropic <span class="tagfree">FREE</span></b><div class="meta">Phase 2 alt MCP path · chat loop → MCP client → server, resources &amp; prompts</div></div><a class="btn te" href="https://www.deeplearning.ai/short-courses/mcp-build-rich-context-ai-apps-with-anthropic/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>Fast &amp; Efficient LLM Inference with vLLM <span class="tagfree">FREE</span></b><div class="meta">Phase 4 · PagedAttention, continuous batching, quantization tradeoffs</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/fast-and-efficient-llm-inference-with-vllm" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>Efficiently Serving LLMs <span class="tagfree">FREE</span></b><div class="meta">Phase 4 · KV-cache mechanics, batching, multi-LoRA serving (LoRAX)</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/efficiently-serving-llms" target="_blank">Open →</a></div>
+
+  <h2>Free — Hugging Face &amp; official</h2>
+  <div class="res"><div class="ic te">AN</div><div class="bd"><b>Claude Code in Action <span class="tagfree">FREE + CERT</span></b><div class="meta">Phase 00 · context mgmt, custom commands, hooks, MCP integration</div></div><a class="btn te" href="https://anthropic.skilljar.com/claude-code-in-action" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DL</div><div class="bd"><b>Claude Code: A Highly Agentic Coding Assistant <span class="tagfree">FREE</span></b><div class="meta">Phase 00 · CLAUDE.md memory, parallel sessions, worktrees, MCP servers</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">HF</div><div class="bd"><b>MCP Course <span class="tagfree">FREE + CERT</span></b><div class="meta">Phase 2 · MCP hosts/clients/servers, build a server (tools, resources, prompts)</div></div><a class="btn te" href="https://huggingface.co/learn/mcp-course" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">HF</div><div class="bd"><b>Agents Course <span class="tagfree">FREE + CERT</span></b><div class="meta">Phase 2 breadth · agent loop fundamentals, smolagents, GAIA benchmark project</div></div><a class="btn te" href="https://huggingface.co/learn/agents-course/en/unit0/introduction" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">HF</div><div class="bd"><b>LLM Course <span class="tagfree">FREE</span></b><div class="meta">Phase 1 reference · transformer anatomy, BPE tokenizers, fine-tuning chapter</div></div><a class="btn te" href="https://huggingface.co/learn/llm-course/chapter1/1" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">HF</div><div class="bd"><b>smol-course (post-training) <span class="tagfree">FREE</span></b><div class="meta">On-demand · SFT &amp; LoRA units, preference alignment (DPO)</div></div><a class="btn te" href="https://huggingface.co/learn/smol-course" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">LC</div><div class="bd"><b>LangChain Academy — Intro to LangGraph <span class="tagfree">FREE</span></b><div class="meta">Phase 2 · state graphs, checkpointing, memory, human-in-the-loop, streaming</div></div><a class="btn te" href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">AN</div><div class="bd"><b>Anthropic Academy <span class="tagfree">FREE</span></b><div class="meta">Phase 5 · “Claude Code in Action”, MCP course, prompt-engineering track</div></div><a class="btn te" href="https://anthropic.skilljar.com/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">AN</div><div class="bd"><b>Building Effective Agents (essay) <span class="tagfree">FREE</span></b><div class="meta">Phase 2 · chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer</div></div><a class="btn te" href="https://www.anthropic.com/research/building-effective-agents" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">MS</div><div class="bd"><b>Microsoft AI Agents for Beginners <span class="tagfree">FREE</span></b><div class="meta">Phase 2 · design patterns, planning, multi-agent, metacognition lessons</div></div><a class="btn te" href="https://github.com/microsoft/ai-agents-for-beginners" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">OA</div><div class="bd"><b>OpenAI Cookbook <span class="tagfree">FREE</span></b><div class="meta">As-needed · structured outputs, RAG, agents &amp; tool-use recipes</div></div><a class="btn te" href="https://github.com/openai/openai-cookbook" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">RG</div><div class="bd"><b>RAGAS docs <span class="tagfree">FREE</span></b><div class="meta">Phase 3 · faithfulness, answer relevancy, context precision/recall, test-set generation</div></div><a class="btn te" href="https://docs.ragas.io/en/stable/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">LF</div><div class="bd"><b>Langfuse docs <span class="tagfree">FREE TIER</span></b><div class="meta">Phase 3 · tracing spans, prompt mgmt, datasets/experiments, judge evaluators, cost</div></div><a class="btn te" href="https://langfuse.com/docs" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">CH</div><div class="bd"><b>Chip Huyen — AI Engineering repo <span class="tagfree">FREE</span></b><div class="meta">Reference · evaluation methodology, RAG/agent architecture, inference optimization chapters</div></div><a class="btn te" href="https://github.com/chiphuyen/aie-book" target="_blank">Open →</a></div>
+
+  <h2>For reference — the expensive cohorts you're replacing</h2>
+  <div class="res"><div class="ic go">MV</div><div class="bd"><b>SwirlAI End-to-End AI Engineering <span class="tagpaid">$2,200</span></b><div class="meta">Skip unless you want live cohort + talent-collective network; free lightning lessons on the page</div></div><a class="btn go" href="https://maven.com/swirl-ai/end-to-end-ai-engineering" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic go">MV</div><div class="bd"><b>Mastering Agentic AI — Gen Academy <span class="tagpaid">$2,499</span></b><div class="meta">Beginner-paced for your level; skip</div></div><a class="btn go" href="https://maven.com/aishwarya-srinivasan/mastering-ai-agents" target="_blank">Open →</a></div>
+  <div class="pager"></div>
+</section>
+
+<!-- ════════ PROJECTS ════════ -->
+<section class="page" id="projects">
+  <h1>Portfolio <span class="grad-txt">Projects</span></h1>
+  <p class="sub">Six shipped, deployed, evaluated projects beat any certificate. Each lives on GitHub with a README showing architecture, eval numbers, and a live link where possible.</p>
+
+  <div class="card tap e-go" onclick="go('pcc')"><div class="meta">PHASE 00 · ~3H · TOOLING</div><h4>#0 · Personal Claude Code plugin</h4><p>1 skill + 2 commands + 1 hook + 1 reviewer subagent + MCP config, used across every later project.</p></div>
+  <div class="card tap e-te" onclick="go('p0')"><div class="meta">PHASE 0 · ~4H · WARM-UP</div><h4>#1 · Java→Python CLI port</h4><p>Port one of your Temporal utilities to a typed Python CLI with Pydantic config. Proves Python fluency fast.</p></div>
+  <div class="card tap e-or" onclick="go('p1')"><div class="meta">PHASE 1 · ~12H</div><h4>#2 · Production RAG knowledge-worker</h4><p>Hybrid retrieval (BM25 + dense) + reranking + RAGAS eval harness over a real corpus. Eval scores in the README.</p></div>
+  <div class="card tap e-or" onclick="go('p1')"><div class="meta">PHASE 1 · ~8H</div><h4>#3 · Multimodal support assistant</h4><p>Function calling + tools + Gradio UI. Shows structured-output discipline.</p></div>
+  <div class="card tap e-go" onclick="go('p2')" style="border-width:2px;border-color:var(--or)"><div class="meta">PHASE 2–4 · ~15H + EXTENSIONS · ★ SIGNATURE</div><h4>#4 · Durable multi-agent orchestrator</h4><p>Multi-agent research system in LangGraph with explicit durability, retries, and state recovery — your Temporal experience made visible. Ships with a blog post: "LangGraph checkpointing vs Temporal durability." Extended in Phase 3 (evals + Langfuse + guardrails) and Phase 4 (full AWS production). This is the headline of your résumé.</p></div>
+  <div class="card tap e-or" onclick="go('p2')"><div class="meta">PHASE 2 · ~6H</div><h4>#5 · MCP server + client</h4><p>Expose a real tool (SQL agent over Postgres) via MCP with input guardrails. MCP is table stakes in 2026 JDs.</p></div>
+  <div class="card tap e-or" onclick="go('p4')"><div class="meta">PHASE 4 · ~12H · CAPSTONE</div><h4>#6 · Orchestrator → production</h4><p>Project #4 containerized, Terraform'd, CI/CD with eval gates, Langfuse monitoring, cost dashboard on AWS.</p></div>
+
+  <div class="co gotcha"><b>Positioning</b>Lead every application with #4 + #6: "durable, observable, evaluated multi-agent systems by an engineer who ran 500K workflows in production." That sentence is your moat — most AI-engineer candidates can't say it.</div>
+  <div class="pager"></div>
+</section>
+
+</main>
+
+<script>
+var ORDER=["overview","timeline","pcc","p0","p1","p2","p3","p4","p5","matrix","resources","projects"];
+var TITLES={overview:"Overview",timeline:"Visual Timeline",pcc:"Phase 00 · Claude Code Power-Ups",p0:"Phase 0 · Python Bridge",p1:"Phase 1 · GenAI Foundations",p2:"Phase 2 · Agentic AI Core",p3:"Phase 3 · Evals & Guardrails",p4:"Phase 4 · Production & LLMOps",p5:"Phase 5 · Coding Agents",matrix:"Coverage Matrix",resources:"Resource Library",projects:"Portfolio Projects"};
+var sb=document.getElementById('sb'),bk=document.getElementById('bk'),main=document.getElementById('main');
+var mobile=function(){return window.innerWidth<=920};
+
+var current=null;
+function go(id){
+  if(ORDER.indexOf(id)<0)id="overview";
+  if(id===current)return;
+  current=id;
+  var pages=document.querySelectorAll('.page');
+  for(var i=0;i<pages.length;i++)pages[i].classList.remove('show');
+  document.getElementById(id).classList.add('show');
+  var links=document.querySelectorAll('.sb a[data-go]');
+  for(var j=0;j<links.length;j++)links[j].classList.toggle('on',links[j].getAttribute('data-go')===id);
+  try{if(location.hash!=='#'+id)location.hash=id;}catch(e){}
+  buildPager(id);
+  try{window.scrollTo(0,0);}catch(e){}
+  if(mobile())closeSb();
+}
+function buildPager(id){
+  var p=document.querySelector('#'+id+' .pager');if(!p)return;
+  var i=ORDER.indexOf(id),h='';
+  if(i>0)h+='<a onclick="go(\''+ORDER[i-1]+'\')"><span class="meta">← Prev</span><b>'+TITLES[ORDER[i-1]]+'</b></a>';
+  if(i<ORDER.length-1)h+='<a class="nx" onclick="go(\''+ORDER[i+1]+'\')"><span class="meta">Next →</span><b>'+TITLES[ORDER[i+1]]+'</b></a>';
+  p.innerHTML=h;
+}
+function openSb(){sb.classList.add('open');sb.classList.remove('closed');if(mobile())bk.classList.add('show');else main.classList.remove('full')}
+function closeSb(){sb.classList.remove('open');if(mobile()){bk.classList.remove('show')}else{sb.classList.add('closed');main.classList.add('full')}}
+document.getElementById('hamb').onclick=function(){
+  var open=mobile()?sb.classList.contains('open'):!sb.classList.contains('closed');
+  open?closeSb():openSb();
+};
+document.getElementById('sbx').onclick=closeSb;
+bk.onclick=closeSb;
+var links=document.querySelectorAll('.sb a[data-go]');
+for(var k=0;k<links.length;k++)links[k].onclick=function(){go(this.getAttribute('data-go'))};
+document.getElementById('thm').onchange=function(){
+  document.documentElement.setAttribute('data-theme',this.checked?'light':'dark');
+};
+window.addEventListener('hashchange',function(){
+  var id='overview';
+  try{id=location.hash.replace('#','')||'overview';}catch(e){}
+  if(id!==current)go(id);
+});
+var start='overview';
+try{if(location.hash)start=location.hash.replace('#','');}catch(e){}
+go(start);
+</script>
+</body>
+</html>
