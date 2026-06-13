@@ -1,4 +1,4 @@
-# AI Engineer Roadmap
+# ai-engineer
 
 **AI Engineer Roadmap · Backend → AI in 3–4 Months** — an interactive, self-contained
 roadmap for transitioning from a backend engineering background into AI engineering.
