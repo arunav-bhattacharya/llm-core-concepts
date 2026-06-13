@@ -8,21 +8,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&display=swap');
 
 :root[data-theme="dark"]{
-  --bg:radial-gradient(125% 85% at 50% 0%,rgba(255,255,255,.06) 0%,rgba(255,255,255,.015) 32%,rgba(255,255,255,0) 60%),#000000;
+  --bg:radial-gradient(140% 120% at 50% -15%,#3d3d3d 0%,#202020 30%,#0c0c0c 62%,#000000 100%);
   --bg-solid:#000000;
-  --card:linear-gradient(150deg,#1c191e 0%,#211d22 100%);
-  --card2:#1f1c21;
-  --side:linear-gradient(180deg,#171419 0%,#1a171c 100%);
-  --top:rgba(21,18,23,.85);
-  --txt:#ebe7ea; --mut:#a0969e; --line:#2d2931;
-  --code-bg:linear-gradient(140deg,#1b181d,#1e1b20);
-  --th:linear-gradient(140deg,#2a2029,#241f26);
-  --sh:0 10px 26px rgba(0,0,0,.4);
-  --chip:#262129;
-  --or:#ff5fa2; --te:#988b93; --go:#b598a6; --pu:#8d8295;
+  --card:linear-gradient(155deg,#242424 0%,#131313 50%,#080808 100%);
+  --card2:#141414;
+  --side:linear-gradient(180deg,#1a1a1a 0%,#0b0b0b 100%);
+  --top:rgba(8,8,8,.82);
+  --txt:#f3f3f3; --mut:#9b9b9b; --line:#2c2c2c;
+  --code-bg:linear-gradient(140deg,#161616,#1e1e1e);
+  --th:linear-gradient(140deg,#272727,#151515);
+  --sh:0 12px 30px rgba(0,0,0,.65),0 3px 10px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.08),inset 0 -1px 1px rgba(0,0,0,.7);
+  --chip:#1e1e1e;
+  --or:#ededed; --te:#9b9b9b; --go:#c2c2c2; --pu:#8f8f8f;
   --c-must:#e06a5c; --c-imp:#d9aa3c; --c-nice:#5cb377; --c-opt:#6c98dd;
-  --tint:rgba(255,95,162,.14);
-  --gOr:linear-gradient(135deg,#ff6eae,#e8338b);
+  --tint:rgba(255,255,255,.09);
+  --gOr:linear-gradient(135deg,#ffffff,#7e7e7e);
 }
 :root[data-theme="light"]{
   --bg:linear-gradient(165deg,#f8f9fb 0%,#f2f4f8 60%,#f5f6f9 100%);
@@ -124,7 +124,7 @@ h3{font-size:16.5px;margin:20px 0 8px}
 .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 .g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
 .tap{cursor:pointer;transition:transform .15s,box-shadow .15s;position:relative;overflow:hidden}
-.tap:hover{transform:translateY(-3px)}
+.tap:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(0,0,0,.7),0 7px 16px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.1)}
 .tap::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;opacity:.85}
 .tap.e-or::before{background:var(--gMust)} .tap.e-te::before{background:var(--gNice)}
 .tap.e-go::before{background:var(--gImp)} .tap.e-pu::before{background:var(--gOpt)}
@@ -155,7 +155,8 @@ h3{font-size:16.5px;margin:20px 0 8px}
 
 /* resource rows */
 .res{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
-  border-radius:13px;padding:13px 16px;margin:9px 0;box-shadow:var(--sh)}
+  border-radius:13px;padding:13px 16px;margin:9px 0;box-shadow:var(--sh);transition:transform .15s,box-shadow .15s}
+.res:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(0,0,0,.6),0 5px 12px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.08)}
 .res .ic{width:40px;height:40px;border-radius:11px;flex:0 0 auto;display:flex;align-items:center;
   justify-content:center;color:#fff;font-weight:600;font-size:13px;font-family:'Google Sans Flex',system-ui,sans-serif}
 .res .ic{background:var(--chip);color:var(--or);border:1px solid var(--line)}
@@ -166,9 +167,11 @@ h3{font-size:16.5px;margin:20px 0 8px}
 .foc{font-size:11.5px;margin-top:3px;color:var(--or);font-family:'Google Sans Flex',system-ui,sans-serif;line-height:1.5}
 .btn{display:inline-block;background:var(--tint);color:var(--or);text-decoration:none;font-weight:600;
   font-size:12.5px;padding:8px 16px;border-radius:99px;white-space:nowrap;font-family:'Google Sans Flex',system-ui,sans-serif;
-  border:1px solid var(--or);transition:.15s}
+  border:1px solid var(--or);box-shadow:0 3px 9px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.12);transition:.15s}
 .btn.te,.btn.go{background:var(--tint);color:var(--or)}
-.btn:hover{background:var(--gOr);color:#fff;border-color:transparent}
+.btn:hover{background:var(--gOr);color:#fff;border-color:transparent;transform:translateY(-1px);box-shadow:0 7px 18px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.3)}
+/* dark mode: dark text on the silver accent-gradient surfaces */
+:root[data-theme="dark"] .btn:hover,:root[data-theme="dark"] .res .ic.or,:root[data-theme="dark"] .sbhead .logo{color:#0a0a0a}
 .tagfree{font-size:10.5px;font-weight:600;color:var(--mut);border:1px solid var(--line);
   padding:1px 8px;border-radius:99px;font-family:'Google Sans Flex',system-ui,sans-serif}
 .tagpaid{font-size:10.5px;font-weight:600;color:var(--go);border:1px solid var(--go);
