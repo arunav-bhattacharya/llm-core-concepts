@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Engineer Roadmap · Backend → AI in 3–4 Months</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%23ffffff'/%3E%3Cstop%20offset='1'%20stop-color='%237e7e7e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='url(%23g)'/%3E%3Ctext%20x='16'%20y='23'%20font-family='Arial,sans-serif'%20font-size='16'%20font-weight='700'%20text-anchor='middle'%20fill='%230a0a0a'%3EAI%3C/text%3E%3C/svg%3E">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&display=swap');
 
@@ -210,6 +211,7 @@ td a:hover{text-decoration:underline}
 /* svg */
 .svgwrap{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px;box-shadow:var(--sh);margin:16px 0}
 svg{width:100%;height:auto;display:block}
+.svgwrap svg{max-width:540px;margin:0 auto}
 .st{fill:var(--txt);font-family:'Google Sans Flex',sans-serif;font-weight:600}
 .sm{fill:var(--mut);font-family:'Google Sans Flex',system-ui,sans-serif}
 .svgcard{fill:var(--card2);stroke:var(--line);cursor:pointer}
@@ -225,7 +227,7 @@ li{margin:4px 0;font-size:14.3px}
   <button class="hamb" id="hamb" aria-label="Menu">
     <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M1 1h16M1 7h16M1 13h16"/></svg>
   </button>
-  <div class="brand">AI Engineer Roadmap<span class="mono">backend → AI · 12–14 weeks</span></div>
+  <div class="brand">AI Engineer Roadmap<span class="mono">backend → AI · Jun–Oct 2026</span></div>
   <div class="spacer"></div>
   <label class="sw" aria-label="Theme"><input type="checkbox" id="thm"><span class="knob"></span></label>
 </header>
@@ -235,6 +237,7 @@ li{margin:4px 0;font-size:14.3px}
   <h3>Start here</h3>
   <a data-go="overview"><span class="dot" style="background:var(--mut)"></span>Overview</a>
   <a data-go="timeline"><span class="dot" style="background:var(--mut)"></span>Visual Timeline</a>
+  <a data-go="schedule"><span class="dot" style="background:var(--mut)"></span>Cohort Schedule</a>
   <h3>Phases</h3>
   <a data-go="pcc"><span class="dot" style="background:var(--c-imp)"></span>00 · Claude Code Power-Ups</a>
   <a data-go="p0"><span class="dot" style="background:var(--c-nice)"></span>0 · Python Bridge</a>
@@ -242,7 +245,7 @@ li{margin:4px 0;font-size:14.3px}
   <a data-go="p2"><span class="dot" style="background:var(--c-must)"></span>2 · Agentic AI Core</a>
   <a data-go="p3"><span class="dot" style="background:var(--c-must)"></span>3 · Evals &amp; Guardrails</a>
   <a data-go="p4"><span class="dot" style="background:var(--c-must)"></span>4 · Production &amp; LLMOps</a>
-  <a data-go="p5"><span class="dot" style="background:var(--c-opt)"></span>5 · Coding Agents</a>
+  <a data-go="p5"><span class="dot" style="background:var(--c-imp)"></span>5 · Differentiators &amp; Launch</a>
   <h3>Reference</h3>
   <a data-go="matrix"><span class="dot" style="background:var(--mut)"></span>Coverage Matrix</a>
   <a data-go="resources"><span class="dot" style="background:var(--mut)"></span>Resource Library</a>
@@ -255,12 +258,12 @@ li{margin:4px 0;font-size:14.3px}
 <!-- ════════ OVERVIEW ════════ -->
 <section class="page" id="overview">
   <h1>Backend Engineer → <span class="grad-txt">AI Engineer</span></h1>
-  <p class="sub">A self-paced plan built from 3 cheap Udemy courses + free gap-fillers — replicating ~90% of two $2,200–2,500 Maven cohorts at ~2% of the cost. Tuned for an external job switch with a portfolio that leans on your Temporal / distributed-systems edge.</p>
+  <p class="sub">A date-anchored plan around the <b>SwirlAI End-to-End AI Engineering cohort you're enrolled in (Jun 22–Aug 16)</b>, co-spined with 3 cheap Udemy courses + free gap-fillers. Cram prep Jun 18–21, build through the 8-week cohort, then a ~8-week differentiator-and-portfolio run to start applying by mid-October — leaning on your Temporal / distributed-systems edge.</p>
 
   <div class="stats">
-    <div class="stat"><div class="n">12–14</div><div class="l">weeks</div></div>
-    <div class="stat"><div class="n">~190h</div><div class="l">total effort</div></div>
-    <div class="stat"><div class="n">$50–80</div><div class="l">course cost</div></div>
+    <div class="stat"><div class="n">~17</div><div class="l">weeks · Jun 18–Oct 11</div></div>
+    <div class="stat"><div class="n">~200h</div><div class="l">total effort</div></div>
+    <div class="stat"><div class="n">~$2.3k</div><div class="l">cohort + supplements</div></div>
     <div class="stat"><div class="n">7</div><div class="l">portfolio projects</div></div>
   </div>
 
@@ -275,17 +278,18 @@ li{margin:4px 0;font-size:14.3px}
 
   <h2>Phases — tap to open</h2>
   <div class="grid g2">
-    <div class="card tap e-go" onclick="go('pcc')"><div class="meta">DAYS 1–4 · ~10H</div><h4>Phase 00 · Claude Code Power-Ups</h4><p>MCP &amp; connectors, skills, hooks, subagents, plugins — close the extensibility gap in the tool you already drive daily.</p></div>
-    <div class="card tap e-te" onclick="go('p0')"><div class="meta">WEEK 0–1 · ~15H</div><h4>Phase 0 · Python Bridge</h4><p>Idiomatic async Python + Pydantic for a JVM dev. Working fluency only — don't over-invest.</p></div>
-    <div class="card tap e-or" onclick="go('p1')"><div class="meta">WEEKS 1–4 · ~50H</div><h4>Phase 1 · GenAI Foundations</h4><p>LLM internals, prompting, structured outputs, RAG + vector DBs, QLoRA. Spine: Udemy LLM Engineering.</p></div>
-    <div class="card tap e-or" onclick="go('p2')"><div class="meta">WEEKS 5–8 · ~45H</div><h4>Phase 2 · Agentic AI Core</h4><p>LangGraph, OpenAI Agents SDK, CrewAI, MCP, multi-agent patterns. Spine: Udemy Agentic course.</p></div>
-    <div class="card tap e-or" onclick="go('p3')"><div class="meta">WEEKS 8–9 · ~20H</div><h4>Phase 3 · Evals &amp; Guardrails</h4><p>LLM-as-judge, RAGAS, Langfuse tracing, prompt-injection defense. The single biggest hiring signal.</p></div>
-    <div class="card tap e-or" onclick="go('p4')"><div class="meta">WEEKS 10–12 · ~35H</div><h4>Phase 4 · Production &amp; LLMOps</h4><p>AWS Bedrock, Terraform, CI/CD, serving (vLLM literacy). Spine: Udemy Production track.</p></div>
-    <div class="card tap e-pu" onclick="go('p5')"><div class="meta">WEEKS 13–14 · ~16H · OPTIONAL</div><h4>Phase 5 · Coding Agents</h4><p>Claude Code, sub-agents, swarms. Trendy productivity layer — do it while applying.</p></div>
+    <div class="card tap e-go" onclick="go('pcc')"><div class="meta">PREP · JUN 18–21</div><h4>Phase 00 · Claude Code Power-Ups</h4><p>MCP &amp; connectors, skills, hooks, subagents, plugins — close the extensibility gap in the tool you already drive daily.</p></div>
+    <div class="card tap e-te" onclick="go('p0')"><div class="meta">PREP · JUN 18–21</div><h4>Phase 0 · Python Bridge</h4><p>Idiomatic async Python + Pydantic for a JVM dev. Working fluency only — don't over-invest.</p></div>
+    <div class="card tap e-or" onclick="go('p1')"><div class="meta">COHORT W1–3 · JUN 22–JUL 12</div><h4>Phase 1 · GenAI Foundations</h4><p>LLM internals, prompting, structured outputs, RAG + vector DBs, QLoRA. Spine: Udemy LLM Engineering.</p></div>
+    <div class="card tap e-or" onclick="go('p2')"><div class="meta">COHORT W4–5 · JUL 13–26</div><h4>Phase 2 · Agentic AI Core</h4><p>LangGraph, OpenAI Agents SDK, CrewAI, MCP, multi-agent patterns. Spine: Udemy Agentic course.</p></div>
+    <div class="card tap e-or" onclick="go('p3')"><div class="meta">COHORT W6 · JUL 27–AUG 2</div><h4>Phase 3 · Evals &amp; Guardrails</h4><p>LLM-as-judge, RAGAS, Langfuse tracing, prompt-injection defense. The single biggest hiring signal.</p></div>
+    <div class="card tap e-or" onclick="go('p4')"><div class="meta">COHORT W7–8 · AUG 3–16</div><h4>Phase 4 · Production &amp; LLMOps</h4><p>AWS Bedrock, Terraform, CI/CD, serving (vLLM literacy). Spine: Udemy Production track.</p></div>
+    <div class="card tap e-go" onclick="go('p5')"><div class="meta">POST-COHORT · AUG 17–OCT 11</div><h4>Phase 5 · Differentiators &amp; Job Launch</h4><p>Deep evals/guardrails, QLoRA, the signature durable orchestrator + AWS capstone, then apply.</p></div>
   </div>
 
   <h2>Reference</h2>
   <div class="grid g3">
+    <div class="card tap e-go" onclick="go('schedule')"><h4>Cohort Schedule</h4><p>Dated 8-sprint plan around the Jun 22 SwirlAI cohort + prep + post-cohort.</p></div>
     <div class="card tap e-go" onclick="go('matrix')"><h4>Coverage Matrix</h4><p>33 topics × market priority × where each is covered.</p></div>
     <div class="card tap e-go" onclick="go('resources')"><h4>Resource Library</h4><p>All paid-but-cheap + free links in one place.</p></div>
     <div class="card tap e-pu" onclick="go('projects')"><h4>Portfolio Projects</h4><p>6 projects incl. your signature durable orchestrator.</p></div>
@@ -297,7 +301,7 @@ li{margin:4px 0;font-size:14.3px}
 <!-- ════════ TIMELINE ════════ -->
 <section class="page" id="timeline">
   <h1>Visual <span class="grad-txt">Timeline</span></h1>
-  <p class="sub">Seven phases over 12–14 weeks at ~12–15 h/week. Edge color = market priority. Tap any phase card to open its page.</p>
+  <p class="sub">Dated to your SwirlAI cohort (Jun 22–Aug 16). ~17 weeks, Jun 18 → mid-Oct, at ~10–14 h/week. Edge color = market priority. Tap any phase card to open its page.</p>
 
   <div class="svgwrap">
   <svg viewBox="0 0 520 925" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roadmap timeline">
@@ -316,7 +320,7 @@ li{margin:4px 0;font-size:14.3px}
     <g onclick="go('pcc')"><rect class="svgcard" x="72" y="22" width="430" height="86" rx="14"/>
       <rect x="72" y="22" width="6" height="86" rx="3" fill="url(#gImpSvg)"/>
       <text x="92" y="48" class="st" font-size="14">Phase 00 · Claude Code Power-Ups</text>
-      <text x="92" y="68" class="sm" font-size="10.5">DAYS 1–4 · ~10h · IMPORTANT · free Anthropic + DL.AI</text>
+      <text x="92" y="68" class="sm" font-size="10.5">PREP · Jun 18–21 · Claude Code power-ups</text>
       <text x="92" y="88" class="sm" font-size="10.5">MCP &amp; connectors · skills · hooks · subagents · plugins</text>
       <text x="455" y="50" class="sm" font-size="9.5" text-anchor="end">10h</text></g>
 
@@ -326,7 +330,7 @@ li{margin:4px 0;font-size:14.3px}
     <g onclick="go('p0')"><rect class="svgcard" x="72" y="142" width="430" height="86" rx="14"/>
       <rect x="72" y="142" width="6" height="86" rx="3" fill="url(#gTe)"/>
       <text x="92" y="168" class="st" font-size="14">Phase 0 · Python Bridge</text>
-      <text x="92" y="188" class="sm" font-size="10.5">WEEK 0–1 · ~15h · warm-up</text>
+      <text x="92" y="188" class="sm" font-size="10.5">PREP · Jun 18–21 · async + Pydantic</text>
       <text x="92" y="208" class="sm" font-size="10.5">async · Pydantic · uv · httpx · Jupyter</text>
       <text x="455" y="170" class="sm" font-size="9.5" text-anchor="end">15h</text></g>
 
@@ -335,7 +339,7 @@ li{margin:4px 0;font-size:14.3px}
     <g onclick="go('p1')"><rect class="svgcard" x="72" y="262" width="430" height="86" rx="14"/>
       <rect x="72" y="262" width="6" height="86" rx="3" fill="url(#gOr)"/>
       <text x="92" y="288" class="st" font-size="14">Phase 1 · GenAI Foundations</text>
-      <text x="92" y="308" class="sm" font-size="10.5">WEEKS 1–4 · ~50h · MUST · Udemy: LLM Engineering</text>
+      <text x="92" y="308" class="sm" font-size="10.5">COHORT W1–3 · Jun 22–Jul 12 · RAG</text>
       <text x="92" y="328" class="sm" font-size="10.5">LLMs · prompting · RAG · vector DBs · QLoRA</text>
       <text x="455" y="290" class="sm" font-size="9.5" text-anchor="end">2 projects</text></g>
 
@@ -344,7 +348,7 @@ li{margin:4px 0;font-size:14.3px}
     <g onclick="go('p2')"><rect class="svgcard" x="72" y="382" width="430" height="86" rx="14"/>
       <rect x="72" y="382" width="6" height="86" rx="3" fill="url(#gOr)"/>
       <text x="92" y="408" class="st" font-size="14">Phase 2 · Agentic AI Core</text>
-      <text x="92" y="428" class="sm" font-size="10.5">WEEKS 5–8 · ~45h · MUST · Udemy: Agentic AI</text>
+      <text x="92" y="428" class="sm" font-size="10.5">COHORT W4–5 · Jul 13–26 · agents + MCP</text>
       <text x="92" y="448" class="sm" font-size="10.5">LangGraph · Agents SDK · CrewAI · MCP · multi-agent</text>
       <text x="455" y="410" class="sm" font-size="9.5" text-anchor="end">2 projects</text></g>
 
@@ -353,7 +357,7 @@ li{margin:4px 0;font-size:14.3px}
     <g onclick="go('p3')"><rect class="svgcard" x="72" y="502" width="430" height="86" rx="14"/>
       <rect x="72" y="502" width="6" height="86" rx="3" fill="url(#gOr)"/>
       <text x="92" y="528" class="st" font-size="14">Phase 3 · Evals, Observability, Guardrails</text>
-      <text x="92" y="548" class="sm" font-size="10.5">WEEKS 8–9 · ~20h · MUST · free DL.AI + RAGAS + Langfuse</text>
+      <text x="92" y="548" class="sm" font-size="10.5">COHORT W6 · Jul 27–Aug 2 · evals + observability</text>
       <text x="92" y="568" class="sm" font-size="10.5">★ biggest hiring signal in 2026 interviews</text>
       <text x="455" y="530" class="sm" font-size="9.5" text-anchor="end">extends #4</text></g>
 
@@ -362,7 +366,7 @@ li{margin:4px 0;font-size:14.3px}
     <g onclick="go('p4')"><rect class="svgcard" x="72" y="622" width="430" height="86" rx="14"/>
       <rect x="72" y="622" width="6" height="86" rx="3" fill="url(#gOr)"/>
       <text x="92" y="648" class="st" font-size="14">Phase 4 · Production &amp; LLMOps</text>
-      <text x="92" y="668" class="sm" font-size="10.5">WEEKS 10–12 · ~35h · MUST · Udemy: Production track</text>
+      <text x="92" y="668" class="sm" font-size="10.5">COHORT W7–8 · Aug 3–16 · deploy + Demo Day</text>
       <text x="92" y="688" class="sm" font-size="10.5">Bedrock · Terraform · CI/CD · Langfuse · vLLM literacy</text>
       <text x="455" y="650" class="sm" font-size="9.5" text-anchor="end">capstone</text></g>
 
@@ -370,18 +374,47 @@ li{margin:4px 0;font-size:14.3px}
     <circle cx="42" cy="782" r="9" fill="url(#gPu)"/>
     <g onclick="go('p5')"><rect class="svgcard" x="72" y="742" width="430" height="86" rx="14"/>
       <rect x="72" y="742" width="6" height="86" rx="3" fill="url(#gPu)"/>
-      <text x="92" y="768" class="st" font-size="14">Phase 5 · Coding Agents (optional)</text>
-      <text x="92" y="788" class="sm" font-size="10.5">WEEKS 13–14 · ~16h · Udemy: AI Coder</text>
-      <text x="92" y="808" class="sm" font-size="10.5">Claude Code · sub-agents · swarms · Agent SDK</text>
+      <text x="92" y="768" class="st" font-size="14">Phase 5 · Differentiators &amp; Job Launch</text>
+      <text x="92" y="788" class="sm" font-size="10.5">POST-COHORT · Aug 17–Oct 11 · ~8 wks</text>
+      <text x="92" y="808" class="sm" font-size="10.5">evals depth · QLoRA · signature project · apply</text>
       <text x="455" y="770" class="sm" font-size="9.5" text-anchor="end">while applying</text></g>
 
     <!-- finish -->
     <line x1="42" y1="875" x2="42" y2="892" stroke="#7d8aa0" stroke-width="3.5" marker-end="url(#arr)"/>
-    <text x="72" y="895" class="st" font-size="13">→ Apply with 6 shipped, deployed, evaluated projects</text>
+    <text x="72" y="895" class="st" font-size="13">→ Apply from mid-Oct with 6 shipped, evaluated projects</text>
   </svg>
   </div>
 
   <div class="co analogy"><b>Analogy</b>Think of it like a Temporal workflow: Phases 1–2 are your activities, Phase 3 is your retry/observability policy, Phase 4 is the deployment of the worker fleet. Skipping Phase 3 is shipping workflows with no metrics — it works until an interviewer asks "how do you know it works?"</div>
+</section>
+
+<!-- ════════ SCHEDULE ════════ -->
+<section class="page" id="schedule">
+  <h1>Cohort <span class="grad-txt">Schedule</span></h1>
+  <p class="sub">Dated to your enrolled SwirlAI End-to-End AI Engineering cohort (Mon Jun 22 – Sat Aug 16, ~10–12 h/week, sprint-based: Mon lesson · Tue review · Thu build lab). Each sprint is co-spined with a cheap Udemy course + free gap-fillers; the post-cohort run adds the differentiators the bootcamp under-serves.</p>
+
+  <div class="co note"><b>Three stages</b>Prep (Jun 18–21) → the 8-week cohort build (Jun 22–Aug 16, Demo Day Aug 16) → Differentiators &amp; Job Launch (Aug 17–Oct 11), applying from mid-October.</div>
+
+  <div class="tablewrap">
+  <table>
+    <tr><th>Window</th><th>Dates · 2026</th><th>Focus</th><th>Phase</th><th>Co-spine</th></tr>
+    <tr><td>Prep</td><td>Jun 18–21</td><td>Claude Code power-ups · async/Pydantic · SwirlAI pre-course (dev env)</td><td>00 · 0</td><td>free Anthropic / DL.AI</td></tr>
+    <tr><td>Sprint 1</td><td>Jun 22–28</td><td>Framing + first RAG MVP + first eval</td><td>1</td><td>Udemy LLM-Eng</td></tr>
+    <tr><td>Sprint 2</td><td>Jun 29–Jul 5</td><td>Ingestion pipelines · chunking · hybrid retrieval (BM25+dense)</td><td>1</td><td>DL.AI RAG</td></tr>
+    <tr><td>Sprint 3</td><td>Jul 6–12</td><td>Reranking · synthetic data · RAG evaluation</td><td>1 · 3</td><td>DL.AI Advanced RAG · RAGAS</td></tr>
+    <tr><td>Sprint 4</td><td>Jul 13–19</td><td>Agents · tool use · Agentic RAG</td><td>2</td><td>Udemy Agentic</td></tr>
+    <tr><td>Sprint 5</td><td>Jul 20–26</td><td>Multi-agent systems · MCP</td><td>2</td><td>HF MCP · LangChain Academy</td></tr>
+    <tr><td>Sprint 6</td><td>Jul 27–Aug 2</td><td>LLMOps · observability · monitoring</td><td>3</td><td>Langfuse · DL.AI Evaluating Agents</td></tr>
+    <tr><td>Sprint 7</td><td>Aug 3–9</td><td>Deploy (Docker · FastAPI · K8s · Modal · cloud) · reliability · load testing</td><td>4</td><td>Udemy Production</td></tr>
+    <tr><td>Sprint 8</td><td>Aug 10–16</td><td>Capstone build + Demo Day (Aug 16)</td><td>4</td><td>—</td></tr>
+    <tr><td>Post · A</td><td>Aug 17–30</td><td>Deep evals/guardrails (OWASP · red-team · CI gates) · QLoRA fine-tuning</td><td>3 · 1</td><td>HF smol-course</td></tr>
+    <tr><td>Post · B</td><td>Aug 31–Sep 20</td><td>Signature durable multi-agent orchestrator → AWS production (Bedrock · Terraform · CI/CD)</td><td>5</td><td>Chip Huyen AIE</td></tr>
+    <tr><td>Post · C</td><td>Sep 21–Oct 11</td><td>Portfolio polish · blog (LangGraph vs Temporal) · mock interviews · apply</td><td>5</td><td>—</td></tr>
+  </table>
+  </div>
+
+  <div class="co indepth"><b>Reading it</b>The cohort is your dated spine for Phases 1–4; the Udemy co-spine reinforces each sprint at your own pace; the post-cohort weeks build the durable-orchestrator signature project and get you application-ready by mid-October.</div>
+  <div class="pager"></div>
 </section>
 
 
@@ -389,7 +422,7 @@ li{margin:4px 0;font-size:14.3px}
 <section class="page" id="pcc">
   <span class="pp imp">IMPORTANT · QUICK WIN</span>
   <h1>Phase 00 · <span class="grad-txt">Claude Code Power-Ups</span></h1>
-  <p class="sub">Days 1–4 · ~10h. You've driven Claude Code daily for months — this closes the extensibility gap: MCP &amp; connectors, skills, hooks, subagents, plugins. It compounds across every later phase and builds MCP intuition before Phase 2 formalizes it.</p>
+  <p class="sub">Prep · Jun 18–21 (crammed before the cohort). You've driven Claude Code daily for months — this closes the extensibility gap: MCP &amp; connectors, skills, hooks, subagents, plugins. It compounds across the whole cohort and builds MCP intuition before the agent sprints. (This also absorbs the old "coding agents" phase.)</p>
 
   <h2>Topics &amp; depth</h2>
   <div class="card">
@@ -411,7 +444,7 @@ li{margin:4px 0;font-size:14.3px}
   <div class="res"><div class="ic te">AN</div><div class="bd"><b>Anthropic Engineering — Claude Code Best Practices <span class="tagfree">FREE</span></b><div class="meta">Blog post · ~30 min</div><div class="foc">Focus → CLAUDE.md patterns · explore-plan-code-commit · test-driven loops · multi-Claude workflows</div></div><a class="btn te" href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank">Open →</a></div>
 
   <div class="co indepth"><b>Project #0 · personal plugin</b>A repo containing 1 skill (your coding conventions), 2 slash commands, 1 PostToolUse formatter hook, 1 reviewer subagent, and an MCP config. Use it on every project in this roadmap — a small portfolio piece that signals agentic-tooling literacy. ~3h.</div>
-  <div class="co gotcha"><b>Timebox it</b>Four days, hard stop. Don't rabbit-hole into elaborate plugin engineering — swarm orchestration and the Claude Agent SDK return in Phase 5. The goal here is fluency, not artistry.</div>
+  <div class="co gotcha"><b>Timebox it</b>Four days, hard stop — the cohort starts Jun 22. Don't rabbit-hole into elaborate plugin engineering or deep swarm/Agent-SDK work; that's a rabbit hole for later. The goal here is fluency, not artistry.</div>
   <div class="pager"></div>
 </section>
 
@@ -419,7 +452,7 @@ li{margin:4px 0;font-size:14.3px}
 <section class="page" id="p0">
   <span class="pp nice">WARM-UP</span>
   <h1>Phase 0 · <span class="grad-txt">Python Bridge</span></h1>
-  <p class="sub">Week 0–1 · ~15h. You're a senior JVM dev — you need <i>idiomatic</i> Python, not CS fundamentals. Working fluency is the exit bar.</p>
+  <p class="sub">Prep · Jun 18–21 (crammed before the cohort, alongside the SwirlAI pre-course). You're a senior JVM dev — you need <i>idiomatic</i> Python, not CS fundamentals. Working fluency is the exit bar.</p>
 
   <h2>Topics &amp; depth</h2>
   <div class="card">
@@ -446,7 +479,7 @@ li{margin:4px 0;font-size:14.3px}
 <section class="page" id="p1">
   <span class="pp must">MUST-MASTER</span>
   <h1>Phase 1 · <span class="grad-txt">GenAI Foundations</span></h1>
-  <p class="sub">Weeks 1–4 · ~50h. The GenAI engineering spine: Udemy "LLM Engineering" end-to-end (33.5h video, 8 projects, refreshed for 2026), plus two free RAG-depth courses.</p>
+  <p class="sub">Cohort weeks 1–3 · Jun 22–Jul 12. The SwirlAI sprints build your first RAG MVP → ingestion + hybrid retrieval → reranking + eval; co-spined with Udemy "LLM Engineering" (33.5h, 8 projects) and two free RAG-depth courses.</p>
 
   <h2>Topics &amp; depth</h2>
   <div class="card">
@@ -476,7 +509,7 @@ li{margin:4px 0;font-size:14.3px}
 <section class="page" id="p2">
   <span class="pp must">MUST-MASTER</span>
   <h1>Phase 2 · <span class="grad-txt">Agentic AI Core</span></h1>
-  <p class="sub">Weeks 5–8 · ~45h. The agentic spine: Udemy "Complete Agentic AI Engineering" (17h, 8 projects) covering all major frameworks + MCP, with free official-source gap-fillers.</p>
+  <p class="sub">Cohort weeks 4–5 · Jul 13–26. The SwirlAI sprints cover agents, Agentic RAG, multi-agent + MCP; co-spined with Udemy "Complete Agentic AI Engineering" (17h) and free official-source gap-fillers.</p>
 
   <h2>Topics &amp; depth</h2>
   <div class="card">
@@ -510,7 +543,7 @@ li{margin:4px 0;font-size:14.3px}
 <section class="page" id="p3">
   <span class="pp must">MUST-MASTER</span>
   <h1>Phase 3 · <span class="grad-txt">Evals, Observability &amp; Guardrails</span></h1>
-  <p class="sub">Weeks 8–9 · ~20h. The gap both Maven cohorts charge $2k+ to teach and the Udemy courses under-serve — yet it's free to learn and the single strongest interview differentiator.</p>
+  <p class="sub">Cohort week 6 · Jul 27–Aug 2, then deepened post-cohort (Aug 17–30). The bootcamp introduces LLMOps + observability; you go deeper here — the single strongest interview differentiator, free to learn.</p>
 
   <h2>Topics &amp; depth</h2>
   <div class="card">
@@ -537,7 +570,7 @@ li{margin:4px 0;font-size:14.3px}
 <section class="page" id="p4">
   <span class="pp must">MUST-MASTER</span>
   <h1>Phase 4 · <span class="grad-txt">Production &amp; LLMOps</span></h1>
-  <p class="sub">Weeks 10–12 · ~35h. Spine: Udemy "Generative &amp; Agentic AI in Production" — deploys 4 products across clouds (deepest on AWS). This converts your DevOps gap into a strength.</p>
+  <p class="sub">Cohort weeks 7–8 · Aug 3–16. The SwirlAI sprints ship deploy (Docker · FastAPI · K8s · Modal · cloud) + reliability + load testing + Demo-Day capstone; co-spined with Udemy "Generative &amp; Agentic AI in Production" (deepest on AWS). Converts your DevOps gap into a strength.</p>
 
   <h2>Topics &amp; depth</h2>
   <div class="card">
@@ -567,22 +600,26 @@ li{margin:4px 0;font-size:14.3px}
 
 <!-- ════════ PHASE 5 ════════ -->
 <section class="page" id="p5">
-  <span class="pp opt">OPTIONAL</span>
-  <h1>Phase 5 · <span class="grad-txt">Coding Agents</span></h1>
-  <p class="sub">Weeks 13–14 · ~10–16h. Phase 00 already front-loaded MCP, skills, hooks and subagents — what remains here is the deep end: swarms, orchestrators, Ralph loops, and the Claude Agent SDK. Best done while applications are out; skip freely if interviews land early.</p>
+  <span class="pp imp">POST-COHORT</span>
+  <h1>Phase 5 · <span class="grad-txt">Differentiators &amp; Job Launch</span></h1>
+  <p class="sub">Aug 17 – Oct 11 · ~8 weeks · ~12 h/week. After Demo Day, this is the runway that turns a bootcamp graduate into a standout hire: the gaps SwirlAI under-serves, your signature project, and the application push. Apply from mid-October.</p>
 
   <h2>Topics &amp; depth</h2>
   <div class="card">
-    <div class="top-row"><span><span class="pd opt"></span><b>Claude Code: commands, checkpoints, MCP, Skills</b></span><span class="d">daily-driver fluency</span></div>
-    <div class="top-row"><span><span class="pd opt"></span><b>Sub-agents, swarms, orchestrators</b></span><span class="d">build one workflow</span></div>
-    <div class="top-row"><span><span class="pd opt"></span><b>Cursor / Codex / agentic IDE patterns</b></span><span class="d">awareness</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>Deep evals &amp; guardrails (OWASP, red-team, CI gates)</b></span><span class="d">Aug 17–30 · go past the cohort's pass</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>QLoRA fine-tuning (one real run)</b></span><span class="d">Aug 17–30 · not covered by SwirlAI</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>Signature durable multi-agent orchestrator</b></span><span class="d">Aug 31–Sep 20 · your Temporal edge, made visible</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>AWS production: Bedrock, Terraform, CI/CD</b></span><span class="d">Aug 31–Sep 20 · productionize the orchestrator</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Portfolio, blog posts &amp; mock interviews</b></span><span class="d">Sep 21–Oct 11 · then apply</span></div>
   </div>
 
   <h2>Resources</h2>
-  <div class="res"><div class="ic or">U4</div><div class="bd"><b>AI Coder: From Vibe Coder to Agentic Engineer <span class="tagpaid">~$15 ON SALE</span></b><div class="meta">16h · 4.7★ · Claude Code, swarms, Agent SDK</div></div><a class="btn" href="https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer" target="_blank">Open →</a></div>
-  <div class="res"><div class="ic te">AN</div><div class="bd"><b>Anthropic Academy <span class="tagfree">FREE</span></b><div class="meta">Official Claude / Claude Code / MCP courses</div><div class="foc">Focus → start with “Claude Code in Action” · then the MCP course · prompt-engineering track as filler</div></div><a class="btn te" href="https://anthropic.skilljar.com/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">HF</div><div class="bd"><b>Hugging Face smol-course (post-training) <span class="tagfree">FREE</span></b><div class="meta">SFT &amp; LoRA units, preference alignment (DPO)</div><div class="foc">Focus → one QLoRA run on a small model — enough to discuss fine-tuning confidently</div></div><a class="btn te" href="https://huggingface.co/learn/smol-course" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic or">U3</div><div class="bd"><b>Generative &amp; Agentic AI in Production — Ed Donner <span class="tagpaid">~$15</span></b><div class="meta">Bedrock, Terraform, CI/CD, Langfuse — the AWS production spine (also Phase 4)</div></div><a class="btn" href="https://www.udemy.com/course/generative-and-agentic-ai-in-production" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">CH</div><div class="bd"><b>Chip Huyen — AI Engineering book repo <span class="tagfree">FREE</span></b><div class="meta">Production system design reference</div><div class="foc">Focus → app architecture · inference optimization · evaluation methodology for the capstone</div></div><a class="btn te" href="https://github.com/chiphuyen/aie-book" target="_blank">Open →</a></div>
 
-  <div class="co note"><b>Note</b>This makes you faster at everything else — but interviewers hire for Phases 1–4. Treat it as compounding interest, not principal.</div>
+  <div class="co indepth"><b>Projects #4 &amp; #6 · signature + capstone</b>Build the durable multi-agent orchestrator in LangGraph (durability, retries, state recovery — your Temporal experience made visible), then take it to production on AWS (containerized behind FastAPI, Terraform IaC, CI/CD with eval gates, Langfuse monitoring, load-tested). Ships with a blog post: "LangGraph checkpointing vs Temporal durability." This is the headline of your résumé.</div>
+  <div class="co note"><b>Why post-cohort</b>The cohort gives you a deployed capstone by Aug 16; these weeks add the differentiators interviewers actually filter on — eval rigor, a durable-systems signature project, and AWS production depth — before you start applying.</div>
   <div class="pager"></div>
 </section>
 
@@ -649,7 +686,7 @@ li{margin:4px 0;font-size:14.3px}
   <div class="res"><div class="ic or">U1</div><div class="bd"><b>LLM Engineering: Master AI &amp; LLMs <span class="tagpaid">~$15</span></b><div class="meta">Ed Donner · 33.5h · 4.7★ · Phase 1 spine</div></div><a class="btn" href="https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models" target="_blank">Open →</a></div>
   <div class="res"><div class="ic or">U2</div><div class="bd"><b>The Complete Agentic AI Engineering Course <span class="tagpaid">~$15</span></b><div class="meta">Ed Donner · 17h · 4.7★ · Phase 2 spine</div></div><a class="btn" href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course" target="_blank">Open →</a></div>
   <div class="res"><div class="ic or">U3</div><div class="bd"><b>Generative &amp; Agentic AI in Production <span class="tagpaid">~$15</span></b><div class="meta">Ed Donner · ~16h · Phase 4 spine</div></div><a class="btn" href="https://www.udemy.com/course/generative-and-agentic-ai-in-production" target="_blank">Open →</a></div>
-  <div class="res"><div class="ic pu">U4</div><div class="bd"><b>AI Coder: Vibe Coder → Agentic Engineer <span class="tagpaid">~$15 · OPTIONAL</span></b><div class="meta">Ed Donner · 16h · Phase 5</div></div><a class="btn" href="https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic pu">U4</div><div class="bd"><b>AI Coder: Vibe Coder → Agentic Engineer <span class="tagpaid">~$15 · OPTIONAL</span></b><div class="meta">Ed Donner · 16h · optional, anytime (coding-agent productivity)</div></div><a class="btn" href="https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer" target="_blank">Open →</a></div>
 
   <h2>Free — DeepLearning.AI</h2>
   <div class="res"><div class="ic te">DL</div><div class="bd"><b>Evaluating AI Agents <span class="tagfree">FREE</span></b><div class="meta">Phase 3 · golden datasets, LLM-as-judge calibration, trajectory evals</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/evaluating-ai-agents" target="_blank">Open →</a></div>
@@ -667,32 +704,34 @@ li{margin:4px 0;font-size:14.3px}
   <div class="res"><div class="ic te">HF</div><div class="bd"><b>LLM Course <span class="tagfree">FREE</span></b><div class="meta">Phase 1 reference · transformer anatomy, BPE tokenizers, fine-tuning chapter</div></div><a class="btn te" href="https://huggingface.co/learn/llm-course/chapter1/1" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">HF</div><div class="bd"><b>smol-course (post-training) <span class="tagfree">FREE</span></b><div class="meta">On-demand · SFT &amp; LoRA units, preference alignment (DPO)</div></div><a class="btn te" href="https://huggingface.co/learn/smol-course" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">LC</div><div class="bd"><b>LangChain Academy — Intro to LangGraph <span class="tagfree">FREE</span></b><div class="meta">Phase 2 · state graphs, checkpointing, memory, human-in-the-loop, streaming</div></div><a class="btn te" href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Open →</a></div>
-  <div class="res"><div class="ic te">AN</div><div class="bd"><b>Anthropic Academy <span class="tagfree">FREE</span></b><div class="meta">Phase 5 · “Claude Code in Action”, MCP course, prompt-engineering track</div></div><a class="btn te" href="https://anthropic.skilljar.com/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">AN</div><div class="bd"><b>Anthropic Academy <span class="tagfree">FREE</span></b><div class="meta">Phase 00 / anytime · “Claude Code in Action”, MCP course, prompt-engineering track</div></div><a class="btn te" href="https://anthropic.skilljar.com/" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">AN</div><div class="bd"><b>Building Effective Agents (essay) <span class="tagfree">FREE</span></b><div class="meta">Phase 2 · chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer</div></div><a class="btn te" href="https://www.anthropic.com/research/building-effective-agents" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">MS</div><div class="bd"><b>Microsoft AI Agents for Beginners <span class="tagfree">FREE</span></b><div class="meta">Phase 2 · design patterns, planning, multi-agent, metacognition lessons</div></div><a class="btn te" href="https://github.com/microsoft/ai-agents-for-beginners" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">OA</div><div class="bd"><b>OpenAI Cookbook <span class="tagfree">FREE</span></b><div class="meta">As-needed · structured outputs, RAG, agents &amp; tool-use recipes</div></div><a class="btn te" href="https://github.com/openai/openai-cookbook" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">RG</div><div class="bd"><b>RAGAS docs <span class="tagfree">FREE</span></b><div class="meta">Phase 3 · faithfulness, answer relevancy, context precision/recall, test-set generation</div></div><a class="btn te" href="https://docs.ragas.io/en/stable/" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">LF</div><div class="bd"><b>Langfuse docs <span class="tagfree">FREE TIER</span></b><div class="meta">Phase 3 · tracing spans, prompt mgmt, datasets/experiments, judge evaluators, cost</div></div><a class="btn te" href="https://langfuse.com/docs" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">CH</div><div class="bd"><b>Chip Huyen — AI Engineering repo <span class="tagfree">FREE</span></b><div class="meta">Reference · evaluation methodology, RAG/agent architecture, inference optimization chapters</div></div><a class="btn te" href="https://github.com/chiphuyen/aie-book" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">AM</div><div class="bd"><b>AI Makerspace — YouTube (Concepts + Code) <span class="tagfree">FREE</span></b><div class="meta">Free weekly live build sessions for aspiring AI Engineers</div><div class="foc">Focus → RAG · agents · MCP · evals &amp; LLMOps walk-throughs — the free companion to their paid certification</div></div><a class="btn te" href="https://www.youtube.com/@AI-Makerspace" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">AM</div><div class="bd"><b>AI Makerspace — GitHub (open-source notebooks) <span class="tagfree">FREE</span></b><div class="meta">The-AI-Engineer-Challenge · LLM-Engineering-Foundations-to-SLMs · AIM-Index</div><div class="foc">Focus → hands-on notebooks for first LLM apps, fine-tuning/SLMs, and an index of every weekly concepts+code event</div></div><a class="btn te" href="https://github.com/AI-Maker-Space" target="_blank">Open →</a></div>
 
-  <h2>For reference — the expensive cohorts you're replacing</h2>
-  <div class="res"><div class="ic go">MV</div><div class="bd"><b>SwirlAI End-to-End AI Engineering <span class="tagpaid">$2,200</span></b><div class="meta">Skip unless you want live cohort + talent-collective network; free lightning lessons on the page</div></div><a class="btn go" href="https://maven.com/swirl-ai/end-to-end-ai-engineering" target="_blank">Open →</a></div>
-  <div class="res"><div class="ic go">MV</div><div class="bd"><b>Mastering Agentic AI — Gen Academy <span class="tagpaid">$2,499</span></b><div class="meta">Beginner-paced for your level; skip</div></div><a class="btn go" href="https://maven.com/aishwarya-srinivasan/mastering-ai-agents" target="_blank">Open →</a></div>
+  <h2>Maven cohorts — your spine + a reference</h2>
+  <div class="res"><div class="ic or">MV</div><div class="bd"><b>SwirlAI — End-to-End AI Engineering <span class="tagpaid">ENROLLED · 8 WK</span></b><div class="meta">Aurimas Griciūnas · Jun 22–Aug 16 cohort · ~10–12 h/wk · Demo-Day capstone</div><div class="foc">Covers → RAG optimization (hybrid BM25+dense, reranking, synthetic data) · Agentic RAG · multi-agent · MCP · LLMOps + observability · FastAPI · Docker · Kubernetes · Modal · cloud deploy · performance testing. Tools: LangChain · LangGraph · ADK · OpenAI Agents SDK · vector DBs</div></div><a class="btn" href="https://maven.com/swirl-ai/end-to-end-ai-engineering" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic go">MV</div><div class="bd"><b>AI Makerspace — AI Engineer Certification <span class="tagpaid">REFERENCE · 10 WK</span></b><div class="meta">Dr. Greg Loughnane et al. · production-focused · ~$4–5k</div><div class="foc">Covers → RAG vs Agents vs Agentic RAG vs Deep Agents vs Multi-Agent · agent memory (short/long) · evaluating agents goals→tools→traces · prompt-eng/RAG/agents/fine-tuning prototyping · synthetic data for evals · production infra · end-to-end agent capstone (free content above ↑)</div></div><a class="btn go" href="https://maven.com/aimakerspace/ai-engineer-certification" target="_blank">Open →</a></div>
   <div class="pager"></div>
 </section>
 
 <!-- ════════ PROJECTS ════════ -->
 <section class="page" id="projects">
   <h1>Portfolio <span class="grad-txt">Projects</span></h1>
-  <p class="sub">Six shipped, deployed, evaluated projects beat any certificate. Each lives on GitHub with a README showing architecture, eval numbers, and a live link where possible.</p>
+  <p class="sub">Six shipped, deployed, evaluated projects beat any certificate — your SwirlAI Demo-Day capstone (Aug 16) is one of them, and the signature durable orchestrator is built post-cohort. Each lives on GitHub with a README showing architecture, eval numbers, and a live link where possible.</p>
 
   <div class="card tap e-go" onclick="go('pcc')"><div class="meta">PHASE 00 · ~3H · TOOLING</div><h4>#0 · Personal Claude Code plugin</h4><p>1 skill + 2 commands + 1 hook + 1 reviewer subagent + MCP config, used across every later project.</p></div>
   <div class="card tap e-te" onclick="go('p0')"><div class="meta">PHASE 0 · ~4H · WARM-UP</div><h4>#1 · Java→Python CLI port</h4><p>Port one of your Temporal utilities to a typed Python CLI with Pydantic config. Proves Python fluency fast.</p></div>
-  <div class="card tap e-or" onclick="go('p1')"><div class="meta">PHASE 1 · ~12H</div><h4>#2 · Production RAG knowledge-worker</h4><p>Hybrid retrieval (BM25 + dense) + reranking + RAGAS eval harness over a real corpus. Eval scores in the README.</p></div>
+  <div class="card tap e-or" onclick="go('p1')"><div class="meta">COHORT W1–3 · JUN 22–JUL 12</div><h4>#2 · Production RAG knowledge-worker</h4><p>Hybrid retrieval (BM25 + dense) + reranking + RAGAS eval harness over a real corpus. Eval scores in the README.</p></div>
   <div class="card tap e-or" onclick="go('p1')"><div class="meta">PHASE 1 · ~8H</div><h4>#3 · Multimodal support assistant</h4><p>Function calling + tools + Gradio UI. Shows structured-output discipline.</p></div>
-  <div class="card tap e-go" onclick="go('p2')" style="border-width:2px;border-color:var(--or)"><div class="meta">PHASE 2–4 · ~15H + EXTENSIONS · ★ SIGNATURE</div><h4>#4 · Durable multi-agent orchestrator</h4><p>Multi-agent research system in LangGraph with explicit durability, retries, and state recovery — your Temporal experience made visible. Ships with a blog post: "LangGraph checkpointing vs Temporal durability." Extended in Phase 3 (evals + Langfuse + guardrails) and Phase 4 (full AWS production). This is the headline of your résumé.</p></div>
+  <div class="card tap e-go" onclick="go('p5')" style="border-width:2px;border-color:var(--or)"><div class="meta">POST-COHORT · PHASE 5 · ★ SIGNATURE</div><h4>#4 · Durable multi-agent orchestrator</h4><p>Multi-agent research system in LangGraph with explicit durability, retries, and state recovery — your Temporal experience made visible. Ships with a blog post: "LangGraph checkpointing vs Temporal durability." Extended in Phase 3 (evals + Langfuse + guardrails) and Phase 4 (full AWS production). This is the headline of your résumé.</p></div>
   <div class="card tap e-or" onclick="go('p2')"><div class="meta">PHASE 2 · ~6H</div><h4>#5 · MCP server + client</h4><p>Expose a real tool (SQL agent over Postgres) via MCP with input guardrails. MCP is table stakes in 2026 JDs.</p></div>
-  <div class="card tap e-or" onclick="go('p4')"><div class="meta">PHASE 4 · ~12H · CAPSTONE</div><h4>#6 · Orchestrator → production</h4><p>Project #4 containerized, Terraform'd, CI/CD with eval gates, Langfuse monitoring, cost dashboard on AWS.</p></div>
+  <div class="card tap e-or" onclick="go('p5')"><div class="meta">POST-COHORT · PHASE 5 · CAPSTONE</div><h4>#6 · Orchestrator → production</h4><p>Project #4 containerized, Terraform'd, CI/CD with eval gates, Langfuse monitoring, cost dashboard on AWS.</p></div>
 
   <div class="co gotcha"><b>Positioning</b>Lead every application with #4 + #6: "durable, observable, evaluated multi-agent systems by an engineer who ran 500K workflows in production." That sentence is your moat — most AI-engineer candidates can't say it.</div>
   <div class="pager"></div>
@@ -701,8 +740,8 @@ li{margin:4px 0;font-size:14.3px}
 </main>
 
 <script>
-var ORDER=["overview","timeline","pcc","p0","p1","p2","p3","p4","p5","matrix","resources","projects"];
-var TITLES={overview:"Overview",timeline:"Visual Timeline",pcc:"Phase 00 · Claude Code Power-Ups",p0:"Phase 0 · Python Bridge",p1:"Phase 1 · GenAI Foundations",p2:"Phase 2 · Agentic AI Core",p3:"Phase 3 · Evals & Guardrails",p4:"Phase 4 · Production & LLMOps",p5:"Phase 5 · Coding Agents",matrix:"Coverage Matrix",resources:"Resource Library",projects:"Portfolio Projects"};
+var ORDER=["overview","timeline","schedule","pcc","p0","p1","p2","p3","p4","p5","matrix","resources","projects"];
+var TITLES={overview:"Overview",timeline:"Visual Timeline",schedule:"Cohort Schedule",pcc:"Phase 00 · Claude Code Power-Ups",p0:"Phase 0 · Python Bridge",p1:"Phase 1 · GenAI Foundations",p2:"Phase 2 · Agentic AI Core",p3:"Phase 3 · Evals & Guardrails",p4:"Phase 4 · Production & LLMOps",p5:"Phase 5 · Differentiators & Job Launch",matrix:"Coverage Matrix",resources:"Resource Library",projects:"Portfolio Projects"};
 var sb=document.getElementById('sb'),bk=document.getElementById('bk'),main=document.getElementById('main');
 var mobile=function(){return window.innerWidth<=920};
 
