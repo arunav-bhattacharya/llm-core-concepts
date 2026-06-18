@@ -286,7 +286,7 @@ li{margin:4px 0;font-size:14.3px}
 
   <h2>Reference</h2>
   <div class="grid g3">
-    <div class="card tap e-go" onclick="go('matrix')"><h4>Coverage Matrix</h4><p>28 topics × market priority × where each is covered.</p></div>
+    <div class="card tap e-go" onclick="go('matrix')"><h4>Coverage Matrix</h4><p>33 topics × market priority × where each is covered.</p></div>
     <div class="card tap e-go" onclick="go('resources')"><h4>Resource Library</h4><p>All paid-but-cheap + free links in one place.</p></div>
     <div class="card tap e-pu" onclick="go('projects')"><h4>Portfolio Projects</h4><p>6 projects incl. your signature durable orchestrator.</p></div>
   </div>
@@ -455,6 +455,7 @@ li{margin:4px 0;font-size:14.3px}
     <div class="top-row"><span><span class="pd must"></span><b>Structured outputs / function calling</b></span><span class="d">deep — Pydantic schemas everywhere</span></div>
     <div class="top-row"><span><span class="pd must"></span><b>RAG: chunking, embeddings, vector DBs</b></span><span class="d">deep + build from scratch once</span></div>
     <div class="top-row"><span><span class="pd must"></span><b>Advanced RAG: hybrid search, reranking</b></span><span class="d">deep — gap-filled by free courses</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Data ingestion pipelines (parse, ETL, re-index)</b></span><span class="d">build one real pipeline for RAG</span></div>
     <div class="top-row"><span><span class="pd imp"></span><b>Fine-tuning: LoRA / QLoRA</b></span><span class="d">do it once, discuss confidently</span></div>
     <div class="top-row"><span><span class="pd nice"></span><b>Multimodal, open-source models (HF)</b></span><span class="d">survey level</span></div>
   </div>
@@ -464,9 +465,10 @@ li{margin:4px 0;font-size:14.3px}
   <div class="res"><div class="ic te">DL</div><div class="bd"><b>DeepLearning.AI — Retrieval Augmented Generation <span class="tagfree">FREE</span></b><div class="meta">Hybrid search, Weaviate, 5 modules · ~6h</div><div class="foc">Focus → chunking strategies · hybrid search (BM25 + dense fusion) · metadata filtering · query rewriting · production retrieval patterns</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/retrieval-augmented-generation" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">DL</div><div class="bd"><b>DeepLearning.AI — Building &amp; Evaluating Advanced RAG <span class="tagfree">FREE</span></b><div class="meta">Sentence-window, auto-merging, reranking, RAG triad · ~2h</div><div class="foc">Focus → sentence-window retrieval · auto-merging retrieval · cross-encoder reranking · RAG triad: context relevance, groundedness, answer relevance</div></div><a class="btn te" href="https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">HF</div><div class="bd"><b>Hugging Face LLM Course <span class="tagfree">FREE</span></b><div class="meta">Reference for tokenizers/transformers depth · dip in as needed</div><div class="foc">Focus → ch.1–2 transformer anatomy + BPE tokenizers · ch.3 fine-tuning a model — skip the classic-NLP chapters</div></div><a class="btn te" href="https://huggingface.co/learn/llm-course/chapter1/1" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">LI</div><div class="bd"><b>LlamaIndex — Loading &amp; Ingestion <span class="tagfree">FREE</span></b><div class="meta">Document loaders, node parsers, ingestion pipelines · ~2h</div><div class="foc">Focus → readers/loaders for real corpora · chunking at scale · the IngestionPipeline (parse → chunk → embed) · incremental / scheduled re-indexing</div></div><a class="btn te" href="https://docs.llamaindex.ai/en/stable/module_guides/loading/" target="_blank">Open →</a></div>
 
   <div class="co note"><b>Depth guidance</b>RAG is the #1 interview topic for product-company AI roles. Be able to whiteboard: chunking tradeoffs → embedding choice → hybrid (BM25+dense) → reranker → eval loop. Fine-tuning: one QLoRA run on a small model is enough; deep RLHF/DPO is deferred.</div>
-  <div class="co indepth"><b>Projects #2 &amp; #3</b><b>#2 Production RAG knowledge-worker:</b> hybrid retrieval + reranking + RAGAS eval harness over a real corpus (~12h). <b>#3 Multimodal support assistant:</b> function calling + tools + Gradio UI (~8h). Both deployed, both on GitHub with eval numbers in the README.</div>
+  <div class="co indepth"><b>Projects #2 &amp; #3</b><b>#2 Production RAG knowledge-worker:</b> a real ingestion pipeline (parse → chunk → index) + hybrid retrieval + reranking + RAGAS eval harness over a real corpus (~12h). <b>#3 Multimodal support assistant:</b> function calling + tools + Gradio UI (~8h). Both deployed, both on GitHub with eval numbers in the README.</div>
   <div class="pager"></div>
 </section>
 
@@ -484,6 +486,8 @@ li{margin:4px 0;font-size:14.3px}
     <div class="top-row"><span><span class="pd must"></span><b>Multi-agent systems + handoffs</b></span><span class="d">deep + failure modes</span></div>
     <div class="top-row"><span><span class="pd imp"></span><b>OpenAI Agents SDK (guardrails, async)</b></span><span class="d">solid working knowledge</span></div>
     <div class="top-row"><span><span class="pd imp"></span><b>CrewAI · memory systems</b></span><span class="d">build one crew</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Agentic RAG: retrieval-as-a-tool, iterative retrieval</b></span><span class="d">the RAG → agentic-RAG progression</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Deep Agents: planner + sub-agents + persistent memory</b></span><span class="d">long-horizon agents (LangChain deepagents)</span></div>
     <div class="top-row"><span><span class="pd nice"></span><b>AutoGen · Google ADK · A2A</b></span><span class="d">awareness only</span></div>
   </div>
 
@@ -494,6 +498,8 @@ li{margin:4px 0;font-size:14.3px}
   <div class="res"><div class="ic te">AN</div><div class="bd"><b>Anthropic — Building Effective Agents <span class="tagfree">FREE</span></b><div class="meta">The canonical patterns essay · 1h read, reread before interviews</div><div class="foc">Focus → workflows-vs-agents distinction · prompt chaining · routing · parallelization · orchestrator-workers · evaluator-optimizer</div></div><a class="btn te" href="https://www.anthropic.com/research/building-effective-agents" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">HF</div><div class="bd"><b>Hugging Face Agents Course <span class="tagfree">FREE + CERT</span></b><div class="meta">smolagents, LlamaIndex, LangGraph breadth · optional ~8h</div><div class="foc">Focus → unit 1 thought-action-observation loop · smolagents unit · final GAIA benchmark project — skip its LangGraph unit (covered above)</div></div><a class="btn te" href="https://huggingface.co/learn/agents-course/en/unit0/introduction" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">MS</div><div class="bd"><b>Microsoft — AI Agents for Beginners <span class="tagfree">FREE</span></b><div class="meta">12 lessons; good AutoGen/Semantic Kernel awareness</div><div class="foc">Focus → agentic design patterns · planning lesson · multi-agent lesson · metacognition — skim AutoGen/Semantic Kernel for awareness only</div></div><a class="btn te" href="https://github.com/microsoft/ai-agents-for-beginners" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">LG</div><div class="bd"><b>LangGraph — Agentic RAG Tutorial <span class="tagfree">FREE</span></b><div class="meta">Official; turn RAG into an agent that decides retrieval · ~2h</div><div class="foc">Focus → retrieval-as-a-tool · query routing &amp; rewriting · grade-and-retry loops · iterative / multi-hop retrieval</div></div><a class="btn te" href="https://langchain-ai.github.io/langgraph/tutorials/rag/langgraph_agentic_rag/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">DA</div><div class="bd"><b>LangChain — Deep Agents <span class="tagfree">FREE</span></b><div class="meta">Long-horizon agents: planner + sub-agents + memory · blog + repo</div><div class="foc">Focus → planning tool &amp; todo lists · sub-agent spawning · persistent file-system memory · when deep agents beat a single ReAct loop</div></div><a class="btn te" href="https://blog.langchain.com/deep-agents/" target="_blank">Open →</a></div>
 
   <div class="co analogy"><b>Your unfair advantage</b>LangGraph checkpointing is Temporal event-sourcing with a smaller vocabulary. Durable state, replay, retries, human-in-the-loop signals — you've run this at 500K-workflow scale. Most AI engineers are learning these concepts for the first time; you're just learning the API.</div>
   <div class="co indepth"><b>Projects #4 &amp; #5</b><b>#4 Durable multi-agent orchestrator (SIGNATURE):</b> deep-research-style multi-agent system in LangGraph with explicit durability, retries, and state recovery; write a blog post comparing LangGraph checkpointing vs Temporal durability (~15h). <b>#5 MCP server + client:</b> expose a real tool (e.g., SQL agent over a Postgres schema) with input guardrails (~6h).</div>
@@ -537,9 +543,11 @@ li{margin:4px 0;font-size:14.3px}
   <div class="card">
     <div class="top-row"><span><span class="pd must"></span><b>AWS for AI: Bedrock, Lambda, SageMaker, S3 vectors</b></span><span class="d">deep — the safest cloud bet</span></div>
     <div class="top-row"><span><span class="pd must"></span><b>Docker + one-cloud deployment</b></span><span class="d">deep — every project containerized</span></div>
+    <div class="top-row"><span><span class="pd must"></span><b>FastAPI service layer (async, streaming responses)</b></span><span class="d">deep — the production API around your agent</span></div>
     <div class="top-row"><span><span class="pd imp"></span><b>Terraform IaC + GitHub Actions CI/CD</b></span><span class="d">one real pipeline</span></div>
     <div class="top-row"><span><span class="pd imp"></span><b>Cost optimization, caching, prompt caching</b></span><span class="d">instrument + discuss</span></div>
     <div class="top-row"><span><span class="pd imp"></span><b>Serving: vLLM, quantization, KV cache, batching</b></span><span class="d">conceptual fluency for interviews</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Performance &amp; load testing (latency, throughput)</b></span><span class="d">load-test before you demo</span></div>
     <div class="top-row"><span><span class="pd nice"></span><b>Kubernetes</b></span><span class="d">literacy — pods/services, deploy once</span></div>
   </div>
 
@@ -548,9 +556,12 @@ li{margin:4px 0;font-size:14.3px}
   <div class="res"><div class="ic te">DL</div><div class="bd"><b>DeepLearning.AI — Fast &amp; Efficient LLM Inference with vLLM <span class="tagfree">FREE</span></b><div class="meta">PagedAttention, continuous batching, quantization · ~2h</div><div class="foc">Focus → PagedAttention · continuous batching · INT8/FP8 quantization tradeoffs · serving config &amp; throughput benchmarks</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/fast-and-efficient-llm-inference-with-vllm" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">DL</div><div class="bd"><b>DeepLearning.AI — Efficiently Serving LLMs <span class="tagfree">FREE</span></b><div class="meta">KV caching, batching, LoRAX · ~1.5h · defer if tight</div><div class="foc">Focus → KV-cache mechanics · batching strategies · multi-LoRA serving (LoRAX) — conceptual pass, no lab needed</div></div><a class="btn te" href="https://www.deeplearning.ai/courses/efficiently-serving-llms" target="_blank">Open →</a></div>
   <div class="res"><div class="ic te">CH</div><div class="bd"><b>Chip Huyen — AI Engineering book companion repo <span class="tagfree">FREE</span></b><div class="meta">Production system design reference; book optional (~$45)</div><div class="foc">Focus → ch.4 evaluation methodology · ch.6 RAG &amp; agent architecture · ch.9 inference optimization · ch.10 app architecture notes</div></div><a class="btn te" href="https://github.com/chiphuyen/aie-book" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">FA</div><div class="bd"><b>FastAPI — Official Docs <span class="tagfree">FREE</span></b><div class="meta">The standard way to wrap an LLM/agent as a service · ~3h</div><div class="foc">Focus → async path operations · StreamingResponse / SSE for token streaming · BackgroundTasks · dependency injection · Pydantic request/response models</div></div><a class="btn te" href="https://fastapi.tiangolo.com/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">LO</div><div class="bd"><b>Locust — Load Testing <span class="tagfree">FREE</span></b><div class="meta">Scriptable load tests in Python · ~1.5h</div><div class="foc">Focus → concurrent users &amp; spawn rate · measuring p50/p95 latency &amp; throughput · finding the concurrency wall before production (k6 is the JS-based alternative)</div></div><a class="btn te" href="https://docs.locust.io/en/stable/" target="_blank">Open →</a></div>
+  <div class="res"><div class="ic te">MO</div><div class="bd"><b>Modal — Serverless GPU Deploy <span class="tagfree">FREE TIER</span></b><div class="meta">Alternative to AWS for GPU inference / batch jobs · monthly free credits</div><div class="foc">Focus → deploy a container/function on a GPU in minutes · autoscale to zero · a lighter-weight deploy target than Bedrock/SageMaker when self-hosting models</div></div><a class="btn te" href="https://modal.com/docs" target="_blank">Open →</a></div>
 
   <div class="co note"><b>Depth guidance</b>You don't need infra-engineer depth: conceptual vLLM/TGI fluency + one Bedrock deployment + one Terraform'd CI/CD pipeline clears the interview bar. Your distributed-systems vocabulary (backpressure, idempotency, retries) already exceeds most candidates' here.</div>
-  <div class="co indepth"><b>Project #6 · capstone</b>Take your durable orchestrator fully to production on AWS: containerized, Terraform IaC, GitHub Actions CI/CD with eval gates, Langfuse monitoring, cost dashboard. This is the headline of your portfolio and résumé.</div>
+  <div class="co indepth"><b>Project #6 · capstone</b>Take your durable orchestrator fully to production on AWS: containerized behind a FastAPI service, Terraform IaC, GitHub Actions CI/CD with eval gates, Langfuse monitoring, cost dashboard, and a Locust load test before demo day. This is the headline of your portfolio and résumé.</div>
   <div class="pager"></div>
 </section>
 
@@ -578,7 +589,7 @@ li{margin:4px 0;font-size:14.3px}
 <!-- ════════ MATRIX ════════ -->
 <section class="page" id="matrix">
   <h1>Coverage <span class="grad-txt">Matrix</span></h1>
-  <p class="sub">28 topics × market priority × where each is covered. U1–U4 = the four Udemy courses. ●●● deep · ●● moderate · ● light · ○ absent. The free column fills whatever the paid spine misses.</p>
+  <p class="sub">33 topics × market priority × where each is covered. U1–U4 = the four Udemy courses. ●●● deep · ●● moderate · ● light · ○ absent. The free column fills whatever the paid spine misses.</p>
   <div class="legend">
     <span><span class="pd must"></span><span class="mono" style="font-size:11px">MUST</span></span>
     <span><span class="pd imp"></span><span class="mono" style="font-size:11px">IMPORTANT</span></span>
@@ -617,6 +628,11 @@ li{margin:4px 0;font-size:14.3px}
     <tr><td>Context engineering</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d2">●●</span></td><td><a href="https://www.anthropic.com/engineering" target="_blank">Anthropic engineering blog</a></td></tr>
     <tr><td>Memory systems</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d1">●</span></td><td><a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">LangGraph memory modules</a></td></tr>
     <tr><td>Production AI system design</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d3">●●●</span></td><td class="c"><span class="d1">●</span></td><td><a href="https://github.com/chiphuyen/aie-book" target="_blank">Chip Huyen AIE repo</a></td></tr>
+    <tr><td>Agentic RAG (retrieval-as-a-tool)</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://langchain-ai.github.io/langgraph/tutorials/rag/langgraph_agentic_rag/" target="_blank">LangGraph Agentic RAG</a></td></tr>
+    <tr><td>Deep Agents (planner + sub-agents)</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://blog.langchain.com/deep-agents/" target="_blank">LangChain Deep Agents</a></td></tr>
+    <tr><td>Data ingestion pipelines (ETL for RAG)</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://docs.llamaindex.ai/en/stable/module_guides/loading/" target="_blank">LlamaIndex loading</a></td></tr>
+    <tr><td>API serving layer (FastAPI)</td><td><span class="pd must"></span>Must</td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d2">●●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI docs</a></td></tr>
+    <tr><td>Performance / load testing</td><td><span class="pd imp"></span>Important</td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d0">○</span></td><td class="c"><span class="d1">●</span></td><td class="c"><span class="d0">○</span></td><td><a href="https://docs.locust.io/en/stable/" target="_blank">Locust</a></td></tr>
   </table>
   </div>
 
