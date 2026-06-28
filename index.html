@@ -219,6 +219,29 @@ svg{width:100%;height:auto;display:block}
 ul{margin:8px 0 8px 20px}
 li{margin:4px 0;font-size:14.3px}
 .legend{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+
+/* weekly plan / checkpoints */
+.prog{margin:14px 0 6px}
+.prog .lbl{font-size:12px;color:var(--mut);margin-bottom:6px;font-family:'Google Sans Flex',system-ui,sans-serif}
+.prog .lbl b{color:var(--or);font-weight:600}
+.prog .bar{height:10px;border-radius:99px;background:var(--chip);overflow:hidden;border:1px solid var(--line)}
+.prog .fill{height:100%;width:0;background:var(--gOr);transition:width .35s ease}
+.stage-h{font-size:12px;text-transform:uppercase;letter-spacing:1.4px;color:var(--mut);margin:24px 0 2px;font-weight:600;font-family:'Google Sans Flex',system-ui,sans-serif}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:15px 18px;box-shadow:var(--sh);margin:12px 0}
+.wk.done{border-color:var(--c-nice)}
+.wk-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:4px}
+.wk-n{font-size:11.5px;font-weight:600;color:var(--or);letter-spacing:.4px;font-family:'Google Sans Flex',system-ui,sans-serif;white-space:nowrap}
+.wk-t{font-weight:600;font-size:14.5px}
+.wk-eff{margin-left:auto;font-size:11px;color:var(--mut);font-family:'Google Sans Flex',system-ui,sans-serif}
+.wk .foc{color:var(--mut);font-size:13px;margin:6px 0 2px}
+.chk{list-style:none;margin:6px 0 0;padding:0}
+.chk li{display:flex;gap:10px;align-items:flex-start;padding:5px 0;font-size:14px;margin:0}
+.chk input{appearance:none;-webkit-appearance:none;width:18px;height:18px;border:1px solid var(--line);border-radius:6px;background:var(--card2);cursor:pointer;flex:0 0 auto;margin:1px 0 0;position:relative;transition:.15s}
+.chk input:checked{background:var(--gOr);border-color:transparent}
+.chk input:checked::after{content:"\2713";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#0a0a0a}
+.chk label{cursor:pointer}
+.chk li.done label{color:var(--mut);text-decoration:line-through}
+.wk .src{font-size:11px;color:var(--mut);margin-top:9px;padding-top:7px;border-top:1px dashed var(--line);font-family:'Google Sans Flex',system-ui,sans-serif}
 </style>
 </head>
 <body>
@@ -237,7 +260,7 @@ li{margin:4px 0;font-size:14.3px}
   <h3>Start here</h3>
   <a data-go="overview"><span class="dot" style="background:var(--mut)"></span>Overview</a>
   <a data-go="timeline"><span class="dot" style="background:var(--mut)"></span>Visual Timeline</a>
-  <a data-go="schedule"><span class="dot" style="background:var(--mut)"></span>Cohort Schedule</a>
+  <a data-go="schedule"><span class="dot" style="background:var(--mut)"></span>Weekly Plan</a>
   <h3>Phases</h3>
   <a data-go="pcc"><span class="dot" style="background:var(--c-imp)"></span>00 · Claude Code Power-Ups</a>
   <a data-go="p0"><span class="dot" style="background:var(--c-nice)"></span>0 · Python Bridge</a>
@@ -258,13 +281,13 @@ li{margin:4px 0;font-size:14.3px}
 <!-- ════════ OVERVIEW ════════ -->
 <section class="page" id="overview">
   <h1>Backend Engineer → <span class="grad-txt">AI Engineer</span></h1>
-  <p class="sub">A date-anchored plan around the <b>SwirlAI End-to-End AI Engineering cohort you're enrolled in (Jun 22–Aug 16)</b>, co-spined with 3 cheap Udemy courses + free gap-fillers. Cram prep Jun 18–21, build through the 8-week cohort, then a ~8-week differentiator-and-portfolio run to start applying by mid-October — leaning on your Temporal / distributed-systems edge.</p>
+  <p class="sub">You're enrolled in the <b>SwirlAI End-to-End AI Engineering cohort</b> and already mid-flight (week 1 done). This plan re-anchors to <b>Jun 30</b> and runs ~13 weeks to <b>end-September</b>: stay active through the cohort (to Aug 16), then ~6 weeks solidifying — at ~10–12 h/week, leaning on your Temporal / distributed-systems edge. Track every week's deliverables on the <b>Weekly Plan</b>.</p>
 
   <div class="stats">
-    <div class="stat"><div class="n">~17</div><div class="l">weeks · Jun 18–Oct 11</div></div>
-    <div class="stat"><div class="n">~200h</div><div class="l">total effort</div></div>
-    <div class="stat"><div class="n">~$2.3k</div><div class="l">cohort + supplements</div></div>
-    <div class="stat"><div class="n">7</div><div class="l">portfolio projects</div></div>
+    <div class="stat"><div class="n">~13</div><div class="l">weeks · Jun 30–Sep 27</div></div>
+    <div class="stat"><div class="n">~150h</div><div class="l">total effort</div></div>
+    <div class="stat"><div class="n">10–12h</div><div class="l">per week</div></div>
+    <div class="stat"><div class="n">end-Sep</div><div class="l">interview-ready</div></div>
   </div>
 
   <div class="legend">
@@ -278,18 +301,18 @@ li{margin:4px 0;font-size:14.3px}
 
   <h2>Phases — tap to open</h2>
   <div class="grid g2">
-    <div class="card tap e-go" onclick="go('pcc')"><div class="meta">PREP · JUN 18–21</div><h4>Phase 00 · Claude Code Power-Ups</h4><p>MCP &amp; connectors, skills, hooks, subagents, plugins — close the extensibility gap in the tool you already drive daily.</p></div>
-    <div class="card tap e-te" onclick="go('p0')"><div class="meta">PREP · JUN 18–21</div><h4>Phase 0 · Python Bridge</h4><p>Idiomatic async Python + Pydantic for a JVM dev. Working fluency only — don't over-invest.</p></div>
+    <div class="card tap e-go" onclick="go('pcc')"><div class="meta">REFERENCE · AS-NEEDED</div><h4>Phase 00 · Claude Code Power-Ups</h4><p>MCP &amp; connectors, skills, hooks, subagents, plugins — close the extensibility gap in the tool you already drive daily.</p></div>
+    <div class="card tap e-te" onclick="go('p0')"><div class="meta">REFERENCE · AS-NEEDED</div><h4>Phase 0 · Python Bridge</h4><p>Idiomatic async Python + Pydantic for a JVM dev. Working fluency only — don't over-invest.</p></div>
     <div class="card tap e-or" onclick="go('p1')"><div class="meta">COHORT W1–3 · JUN 22–JUL 12</div><h4>Phase 1 · GenAI Foundations</h4><p>LLM internals, prompting, structured outputs, RAG + vector DBs, QLoRA. Spine: Udemy LLM Engineering.</p></div>
     <div class="card tap e-or" onclick="go('p2')"><div class="meta">COHORT W4–5 · JUL 13–26</div><h4>Phase 2 · Agentic AI Core</h4><p>LangGraph, OpenAI Agents SDK, CrewAI, MCP, multi-agent patterns. Spine: Udemy Agentic course.</p></div>
     <div class="card tap e-or" onclick="go('p3')"><div class="meta">COHORT W6 · JUL 27–AUG 2</div><h4>Phase 3 · Evals &amp; Guardrails</h4><p>LLM-as-judge, RAGAS, Langfuse tracing, prompt-injection defense. The single biggest hiring signal.</p></div>
     <div class="card tap e-or" onclick="go('p4')"><div class="meta">COHORT W7–8 · AUG 3–16</div><h4>Phase 4 · Production &amp; LLMOps</h4><p>AWS Bedrock, Terraform, CI/CD, serving (vLLM literacy). Spine: Udemy Production track.</p></div>
-    <div class="card tap e-go" onclick="go('p5')"><div class="meta">POST-COHORT · AUG 17–OCT 11</div><h4>Phase 5 · Differentiators &amp; Job Launch</h4><p>Deep evals/guardrails, QLoRA, the signature durable orchestrator + AWS capstone, then apply.</p></div>
+    <div class="card tap e-go" onclick="go('p5')"><div class="meta">POST-COHORT · AUG 17–SEP 27</div><h4>Phase 5 · Differentiators &amp; Job Launch</h4><p>Deep evals/guardrails, the signature durable orchestrator + AWS capstone, then apply.</p></div>
   </div>
 
   <h2>Reference</h2>
   <div class="grid g3">
-    <div class="card tap e-go" onclick="go('schedule')"><h4>Cohort Schedule</h4><p>Dated 8-sprint plan around the Jun 22 SwirlAI cohort + prep + post-cohort.</p></div>
+    <div class="card tap e-go" onclick="go('schedule')"><h4>Weekly Plan</h4><p>13 weekly checkpoints (Jun 30–Sep 27) with trackable deliverables.</p></div>
     <div class="card tap e-go" onclick="go('matrix')"><h4>Coverage Matrix</h4><p>33 topics × market priority × where each is covered.</p></div>
     <div class="card tap e-go" onclick="go('resources')"><h4>Resource Library</h4><p>All paid-but-cheap + free links in one place.</p></div>
     <div class="card tap e-pu" onclick="go('projects')"><h4>Portfolio Projects</h4><p>6 projects incl. your signature durable orchestrator.</p></div>
@@ -301,7 +324,7 @@ li{margin:4px 0;font-size:14.3px}
 <!-- ════════ TIMELINE ════════ -->
 <section class="page" id="timeline">
   <h1>Visual <span class="grad-txt">Timeline</span></h1>
-  <p class="sub">Dated to your SwirlAI cohort (Jun 22–Aug 16). ~17 weeks, Jun 18 → mid-Oct, at ~10–14 h/week. Edge color = market priority. Tap any phase card to open its page.</p>
+  <p class="sub">Re-anchored to <b>Jun 30 → end-September</b> · 13 weekly checkpoints at ~10–12 h/week (cohort to Aug 16, then ~6 weeks solidifying). The phases below are the topic-depth reference; the <b>Weekly Plan</b> holds the trackable schedule.</p>
 
   <div class="svgwrap">
   <svg viewBox="0 0 520 925" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roadmap timeline">
@@ -320,7 +343,7 @@ li{margin:4px 0;font-size:14.3px}
     <g onclick="go('pcc')"><rect class="svgcard" x="72" y="22" width="430" height="86" rx="14"/>
       <rect x="72" y="22" width="6" height="86" rx="3" fill="url(#gImpSvg)"/>
       <text x="92" y="48" class="st" font-size="14">Phase 00 · Claude Code Power-Ups</text>
-      <text x="92" y="68" class="sm" font-size="10.5">PREP · Jun 18–21 · Claude Code power-ups</text>
+      <text x="92" y="68" class="sm" font-size="10.5">REFERENCE · do as-needed · cohort underway</text>
       <text x="92" y="88" class="sm" font-size="10.5">MCP &amp; connectors · skills · hooks · subagents · plugins</text>
       <text x="455" y="50" class="sm" font-size="9.5" text-anchor="end">10h</text></g>
 
@@ -330,7 +353,7 @@ li{margin:4px 0;font-size:14.3px}
     <g onclick="go('p0')"><rect class="svgcard" x="72" y="142" width="430" height="86" rx="14"/>
       <rect x="72" y="142" width="6" height="86" rx="3" fill="url(#gTe)"/>
       <text x="92" y="168" class="st" font-size="14">Phase 0 · Python Bridge</text>
-      <text x="92" y="188" class="sm" font-size="10.5">PREP · Jun 18–21 · async + Pydantic</text>
+      <text x="92" y="188" class="sm" font-size="10.5">REFERENCE · do as-needed</text>
       <text x="92" y="208" class="sm" font-size="10.5">async · Pydantic · uv · httpx · Jupyter</text>
       <text x="455" y="170" class="sm" font-size="9.5" text-anchor="end">15h</text></g>
 
@@ -375,13 +398,13 @@ li{margin:4px 0;font-size:14.3px}
     <g onclick="go('p5')"><rect class="svgcard" x="72" y="742" width="430" height="86" rx="14"/>
       <rect x="72" y="742" width="6" height="86" rx="3" fill="url(#gPu)"/>
       <text x="92" y="768" class="st" font-size="14">Phase 5 · Differentiators &amp; Job Launch</text>
-      <text x="92" y="788" class="sm" font-size="10.5">POST-COHORT · Aug 17–Oct 11 · ~8 wks</text>
-      <text x="92" y="808" class="sm" font-size="10.5">evals depth · QLoRA · signature project · apply</text>
+      <text x="92" y="788" class="sm" font-size="10.5">POST-COHORT · Aug 17–Sep 27 · ~6 wks</text>
+      <text x="92" y="808" class="sm" font-size="10.5">evals · durable orchestrator · portfolio · apply</text>
       <text x="455" y="770" class="sm" font-size="9.5" text-anchor="end">while applying</text></g>
 
     <!-- finish -->
     <line x1="42" y1="875" x2="42" y2="892" stroke="#7d8aa0" stroke-width="3.5" marker-end="url(#arr)"/>
-    <text x="72" y="895" class="st" font-size="13">→ Apply from mid-Oct with 6 shipped, evaluated projects</text>
+    <text x="72" y="895" class="st" font-size="13">→ Apply from end-Sep with a shipped, evaluated, durable capstone</text>
   </svg>
   </div>
 
@@ -390,30 +413,165 @@ li{margin:4px 0;font-size:14.3px}
 
 <!-- ════════ SCHEDULE ════════ -->
 <section class="page" id="schedule">
-  <h1>Cohort <span class="grad-txt">Schedule</span></h1>
-  <p class="sub">Dated to your enrolled SwirlAI End-to-End AI Engineering cohort (Mon Jun 22 – Sat Aug 16, ~10–12 h/week, sprint-based: Mon lesson · Tue review · Thu build lab). Each sprint is co-spined with a cheap Udemy course + free gap-fillers; the post-cohort run adds the differentiators the bootcamp under-serves.</p>
+  <h1>Weekly <span class="grad-txt">Plan</span></h1>
+  <p class="sub">Re-anchored to start <b>Jun 30</b>. 13 weekly checkpoints at <b>~10–12 h/week</b> → interview-ready by <b>end-September</b> (stretch buffer to mid-Oct). Tick off each week's deliverables — your progress saves in this browser. Everything builds one running capstone so the work compounds.</p>
 
-  <div class="co note"><b>Three stages</b>Prep (Jun 18–21) → the 8-week cohort build (Jun 22–Aug 16, Demo Day Aug 16) → Differentiators &amp; Job Launch (Aug 17–Oct 11), applying from mid-October.</div>
-
-  <div class="tablewrap">
-  <table>
-    <tr><th>Window</th><th>Dates · 2026</th><th>Focus</th><th>Phase</th><th>Co-spine</th></tr>
-    <tr><td>Prep</td><td>Jun 18–21</td><td>Claude Code power-ups · async/Pydantic · SwirlAI pre-course (dev env)</td><td>00 · 0</td><td>free Anthropic / DL.AI</td></tr>
-    <tr><td>Sprint 1</td><td>Jun 22–28</td><td>Framing + first RAG MVP + first eval</td><td>1</td><td>Udemy LLM-Eng</td></tr>
-    <tr><td>Sprint 2</td><td>Jun 29–Jul 5</td><td>Ingestion pipelines · chunking · hybrid retrieval (BM25+dense)</td><td>1</td><td>DL.AI RAG</td></tr>
-    <tr><td>Sprint 3</td><td>Jul 6–12</td><td>Reranking · synthetic data · RAG evaluation</td><td>1 · 3</td><td>DL.AI Advanced RAG · RAGAS</td></tr>
-    <tr><td>Sprint 4</td><td>Jul 13–19</td><td>Agents · tool use · Agentic RAG</td><td>2</td><td>Udemy Agentic</td></tr>
-    <tr><td>Sprint 5</td><td>Jul 20–26</td><td>Multi-agent systems · MCP</td><td>2</td><td>HF MCP · LangChain Academy</td></tr>
-    <tr><td>Sprint 6</td><td>Jul 27–Aug 2</td><td>LLMOps · observability · monitoring</td><td>3</td><td>Langfuse · DL.AI Evaluating Agents</td></tr>
-    <tr><td>Sprint 7</td><td>Aug 3–9</td><td>Deploy (Docker · FastAPI · K8s · Modal · cloud) · reliability · load testing</td><td>4</td><td>Udemy Production</td></tr>
-    <tr><td>Sprint 8</td><td>Aug 10–16</td><td>Capstone build + Demo Day (Aug 16)</td><td>4</td><td>—</td></tr>
-    <tr><td>Post · A</td><td>Aug 17–30</td><td>Deep evals/guardrails (OWASP · red-team · CI gates) · QLoRA fine-tuning</td><td>3 · 1</td><td>HF smol-course</td></tr>
-    <tr><td>Post · B</td><td>Aug 31–Sep 20</td><td>Signature durable multi-agent orchestrator → AWS production (Bedrock · Terraform · CI/CD)</td><td>5</td><td>Chip Huyen AIE</td></tr>
-    <tr><td>Post · C</td><td>Sep 21–Oct 11</td><td>Portfolio polish · blog (LangGraph vs Temporal) · mock interviews · apply</td><td>5</td><td>—</td></tr>
-  </table>
+  <div class="prog">
+    <div class="lbl" id="proglbl">0 deliverables done</div>
+    <div class="bar"><div class="fill" id="progfill"></div></div>
   </div>
 
-  <div class="co indepth"><b>Reading it</b>The cohort is your dated spine for Phases 1–4; the Udemy co-spine reinforces each sprint at your own pace; the post-cohort weeks build the durable-orchestrator signature project and get you application-ready by mid-October.</div>
+  <div class="co note"><b>How to use it</b>Each week = one focus + 3–4 finite deliverables. Stay in sync with the live cohort through Aug 16, then solidify. If a week slips, keep the capstone thread alive rather than abandoning it. <b>Stretch</b> items (bottom) are optional and don't count toward your progress.</div>
+
+  <div class="stage-h">Cohort · active through Aug 16</div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 1 · JUN 30–JUL 5</span><span class="wk-t">Catch-up + Sprint 1 · retrieval</span><span class="wk-eff">~12h</span></div>
+    <div class="foc">Clear the week-1 backlog while the live cohort runs its retrieval sprint.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w1a"><label for="w1a">Finish Week-1 reading materials + hands-on videos</label></li>
+      <li><input type="checkbox" id="w1b"><label for="w1b">Scaffold the capstone repo; wire tracing/observability from day 1</label></li>
+      <li><input type="checkbox" id="w1c"><label for="w1c">Reproduce the first RAG prototype on your own corpus</label></li>
+      <li><input type="checkbox" id="w1d"><label for="w1d">Lock your capstone use-case (one-line problem statement)</label></li>
+    </ul>
+    <div class="src">SwirlAI Sprint 0–1 · co-spine: DL.AI RAG · Langfuse tracing</div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 2 · JUL 6–12</span><span class="wk-t">Sprint 2 · agentic systems</span><span class="wk-eff">~11h</span></div>
+    <div class="foc">Make retrieval measurably good, then take your first step into agents.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w2a"><label for="w2a">Add hybrid retrieval (BM25 + dense) + a reranker; record recall before/after</label></li>
+      <li><input type="checkbox" id="w2b"><label for="w2b">Build an ingestion pipeline (parse → chunk → index)</label></li>
+      <li><input type="checkbox" id="w2c"><label for="w2c">Build your first tool-using agent node (plan → tool → observe)</label></li>
+    </ul>
+    <div class="src">SwirlAI Sprint 1–2 · co-spine: DL.AI Advanced RAG</div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 3 · JUL 13–19</span><span class="wk-t">Sprint 3 · agentic RAG</span><span class="wk-eff">~11h</span></div>
+    <div class="foc">Let the agent decide retrieval; start evaluating it like an engineer.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w3a"><label for="w3a">Evolve to an agentic-RAG flow grounded over ≥2 sources</label></li>
+      <li><input type="checkbox" id="w3b"><label for="w3b">Generate a synthetic eval set; wire traces (Langfuse/LangSmith)</label></li>
+      <li><input type="checkbox" id="w3c"><label for="w3c">Note one "when NOT to use an agent" decision in your README</label></li>
+    </ul>
+    <div class="src">SwirlAI Sprint 3 · co-spine: RAGAS synthetic data</div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 4 · JUL 20–26</span><span class="wk-t">Sprint 4 · MCP</span><span class="wk-eff">~11h</span></div>
+    <div class="foc">Phase 00 gave you MCP as a client; now build the server/tool side.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w4a"><label for="w4a">Expose one domain tool as an MCP server your agent calls</label></li>
+      <li><input type="checkbox" id="w4b"><label for="w4b">Wire the agent to the MCP tool end-to-end</label></li>
+      <li><input type="checkbox" id="w4c"><label for="w4c">Document the tool contract (inputs / outputs / guardrails)</label></li>
+    </ul>
+    <div class="src">SwirlAI Sprint 4 · co-spine: HF MCP Course</div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 5 · JUL 27–AUG 2</span><span class="wk-t">Sprint 5 · multi-agent + A2A</span><span class="wk-eff">~12h</span></div>
+    <div class="foc">Coordinate agents and make their behavior predictable.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w5a"><label for="w5a">Build a supervised multi-agent flow (supervisor / worker)</label></li>
+      <li><input type="checkbox" id="w5b"><label for="w5b">Add one A2A handoff between agents</label></li>
+      <li><input type="checkbox" id="w5c"><label for="w5c">Add explicit safeguards (timeouts, retries, output checks)</label></li>
+    </ul>
+    <div class="src">SwirlAI Sprint 5 · co-spine: Anthropic "Building Effective Agents"</div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 6 · AUG 3–9</span><span class="wk-t">Sprint 6 · LLMOps eval gates</span><span class="wk-eff">~12h</span></div>
+    <div class="foc">The senior bar — and the cohort's signature. Don't cut this week.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w6a"><label for="w6a">Build a versioned golden eval set</label></li>
+      <li><input type="checkbox" id="w6b"><label for="w6b">Add a CI gate that fails the build on eval regression</label></li>
+      <li><input type="checkbox" id="w6c"><label for="w6c">Add prompt versioning + structured-output validation</label></li>
+    </ul>
+    <div class="src">SwirlAI Sprint 6 · co-spine: RAGAS · DL.AI Evaluating Agents</div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 7 · AUG 10–16</span><span class="wk-t">Sprint 7 · deploy + Demo Day</span><span class="wk-eff">~10h</span></div>
+    <div class="foc">Ship it and present. Reuse a deploy path you already know.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w7a"><label for="w7a">Deploy the app to the cloud (reuse the cohort path)</label></li>
+      <li><input type="checkbox" id="w7b"><label for="w7b">Prepare the Demo-Day repo + a 2-min walkthrough</label></li>
+      <li><input type="checkbox" id="w7c"><label for="w7c">Apply to the SwirlAI Talent Collective</label></li>
+    </ul>
+    <div class="src">SwirlAI Sprint 7 · Demo Day Aug 16</div>
+  </div>
+
+  <div class="stage-h">Post-cohort · solidify → end-September</div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 8 · AUG 17–23</span><span class="wk-t">Consolidate + deep evals</span><span class="wk-eff">~12h</span></div>
+    <div class="foc">Turn the cohort's eval intro into real depth — your top interview artifact.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w8a"><label for="w8a">RAGAS depth: faithfulness + context precision/recall on the capstone</label></li>
+      <li><input type="checkbox" id="w8b"><label for="w8b">Calibrate an LLM-as-judge against a small human-labeled set</label></li>
+      <li><input type="checkbox" id="w8c"><label for="w8c">Clear any cohort backlog (notebooks / readings you skipped)</label></li>
+    </ul>
+    <div class="src">co-spine: RAGAS docs · DL.AI Evaluating Agents</div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 9 · AUG 24–30</span><span class="wk-t">Advanced retrieval + guardrails</span><span class="wk-eff">~12h</span></div>
+    <div class="foc">Close the two gaps the cohort touches lightly: retrieval depth and security.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w9a"><label for="w9a">Diagnose &amp; fix a low-recall case (chunking / rerank tuning)</label></li>
+      <li><input type="checkbox" id="w9b"><label for="w9b">OWASP LLM Top-10 pass; add prompt-injection defense</label></li>
+      <li><input type="checkbox" id="w9c"><label for="w9c">Add output validation / PII filtering to the agent</label></li>
+    </ul>
+    <div class="src">co-spine: DL.AI Advanced RAG · OWASP LLM Top-10</div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 10 · AUG 31–SEP 6</span><span class="wk-t">Signature durable orchestrator</span><span class="wk-eff">~12h</span></div>
+    <div class="foc">Your moat — the thing no bootcamp grad has. Lead interviews with this.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w10a"><label for="w10a">Re-architect the agent loop as a durable workflow (Temporal-backed)</label></li>
+      <li><input type="checkbox" id="w10b"><label for="w10b">Add retries/compensation over flaky LLM calls + a human-in-the-loop gate</label></li>
+      <li><input type="checkbox" id="w10c"><label for="w10c">Draft the "LangGraph checkpointing vs Temporal durability" write-up</label></li>
+    </ul>
+    <div class="src">your Temporal edge · Anthropic agents essay</div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 11 · SEP 7–13</span><span class="wk-t">AWS production</span><span class="wk-eff">~12h</span></div>
+    <div class="foc">Productionize the capstone on real infrastructure.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w11a"><label for="w11a">Containerize behind a FastAPI service</label></li>
+      <li><input type="checkbox" id="w11b"><label for="w11b">Terraform IaC + GitHub Actions CI/CD with the eval gate</label></li>
+      <li><input type="checkbox" id="w11c"><label for="w11c">Langfuse monitoring + a cost dashboard</label></li>
+    </ul>
+    <div class="src">co-spine: Udemy Production · Chip Huyen AIE</div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 12 · SEP 14–20</span><span class="wk-t">Portfolio + serving literacy</span><span class="wk-eff">~11h</span></div>
+    <div class="foc">Package the work and shore up the one interview topic you only need to discuss.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w12a"><label for="w12a">Polish the README + record a 2-min demo video</label></li>
+      <li><input type="checkbox" id="w12b"><label for="w12b">Publish 2 blog posts (durable AI orchestration; inference optimization)</label></li>
+      <li><input type="checkbox" id="w12c"><label for="w12c">Conceptual pass on vLLM / quantization / KV-cache</label></li>
+    </ul>
+    <div class="src">co-spine: DL.AI vLLM · Chip Huyen AIE</div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="wk-n">WEEK 13 · SEP 21–27</span><span class="wk-t">Interview prep + apply</span><span class="wk-eff">~12h</span></div>
+    <div class="foc">Turn the work into offers.</div>
+    <ul class="chk">
+      <li><input type="checkbox" id="w13a"><label for="w13a">Rewrite the resume eval-first (recall lift, eval gate, durability numbers)</label></li>
+      <li><input type="checkbox" id="w13b"><label for="w13b">System-design reps: RAG, agentic, durable-orchestration</label></li>
+      <li><input type="checkbox" id="w13c"><label for="w13c">2–3 mock interviews; start applying to product companies</label></li>
+    </ul>
+    <div class="src">portfolio + reps · target: applying by end-Sep</div>
+  </div>
+
+  <div class="co indepth"><b>Stretch (optional · only if you're ahead)</b>One QLoRA fine-tuning run · a JVM-native rebuild (Quarkus + Temporal-Java SDK) · a Kubernetes deploy. These are differentiators, not requirements — they spill into a mid-Oct buffer and aren't counted in your progress bar.</div>
   <div class="pager"></div>
 </section>
 
@@ -422,7 +580,7 @@ li{margin:4px 0;font-size:14.3px}
 <section class="page" id="pcc">
   <span class="pp imp">IMPORTANT · QUICK WIN</span>
   <h1>Phase 00 · <span class="grad-txt">Claude Code Power-Ups</span></h1>
-  <p class="sub">Prep · Jun 18–21 (crammed before the cohort). You've driven Claude Code daily for months — this closes the extensibility gap: MCP &amp; connectors, skills, hooks, subagents, plugins. It compounds across the whole cohort and builds MCP intuition before the agent sprints. (This also absorbs the old "coding agents" phase.)</p>
+  <p class="sub">Reference · do as-needed (you're already in the cohort). This closes the Claude Code extensibility gap — MCP &amp; connectors, skills, hooks, subagents, plugins — which makes every later week faster. If you skipped it before the cohort, slot a few hours into an early week. (This also absorbs the old "coding agents" phase.)</p>
 
   <h2>Topics &amp; depth</h2>
   <div class="card">
@@ -452,7 +610,7 @@ li{margin:4px 0;font-size:14.3px}
 <section class="page" id="p0">
   <span class="pp nice">WARM-UP</span>
   <h1>Phase 0 · <span class="grad-txt">Python Bridge</span></h1>
-  <p class="sub">Prep · Jun 18–21 (crammed before the cohort, alongside the SwirlAI pre-course). You're a senior JVM dev — you need <i>idiomatic</i> Python, not CS fundamentals. Working fluency is the exit bar.</p>
+  <p class="sub">Reference · do as-needed alongside the cohort. You're a senior JVM dev — you need <i>idiomatic</i> Python (async, Pydantic, FastAPI) to read SwirlAI's reference code and ship, not CS fundamentals. Working fluency is the bar.</p>
 
   <h2>Topics &amp; depth</h2>
   <div class="card">
@@ -602,7 +760,7 @@ li{margin:4px 0;font-size:14.3px}
 <section class="page" id="p5">
   <span class="pp imp">POST-COHORT</span>
   <h1>Phase 5 · <span class="grad-txt">Differentiators &amp; Job Launch</span></h1>
-  <p class="sub">Aug 17 – Oct 11 · ~8 weeks · ~12 h/week. After Demo Day, this is the runway that turns a bootcamp graduate into a standout hire: the gaps SwirlAI under-serves, your signature project, and the application push. Apply from mid-October.</p>
+  <p class="sub">Aug 17 – Sep 27 · ~6 weeks · ~10–12 h/week. After Demo Day, this is the runway that turns a bootcamp graduate into a standout hire: the gaps SwirlAI under-serves, your signature project, and the application push. Apply from end-September. (Full week-by-week breakdown on the Weekly Plan.)</p>
 
   <h2>Topics &amp; depth</h2>
   <div class="card">
@@ -610,7 +768,7 @@ li{margin:4px 0;font-size:14.3px}
     <div class="top-row"><span><span class="pd imp"></span><b>QLoRA fine-tuning (one real run)</b></span><span class="d">Aug 17–30 · not covered by SwirlAI</span></div>
     <div class="top-row"><span><span class="pd must"></span><b>Signature durable multi-agent orchestrator</b></span><span class="d">Aug 31–Sep 20 · your Temporal edge, made visible</span></div>
     <div class="top-row"><span><span class="pd must"></span><b>AWS production: Bedrock, Terraform, CI/CD</b></span><span class="d">Aug 31–Sep 20 · productionize the orchestrator</span></div>
-    <div class="top-row"><span><span class="pd imp"></span><b>Portfolio, blog posts &amp; mock interviews</b></span><span class="d">Sep 21–Oct 11 · then apply</span></div>
+    <div class="top-row"><span><span class="pd imp"></span><b>Portfolio, blog posts &amp; mock interviews</b></span><span class="d">Sep 14–27 · then apply</span></div>
   </div>
 
   <h2>Resources</h2>
@@ -741,7 +899,7 @@ li{margin:4px 0;font-size:14.3px}
 
 <script>
 var ORDER=["overview","timeline","schedule","pcc","p0","p1","p2","p3","p4","p5","matrix","resources","projects"];
-var TITLES={overview:"Overview",timeline:"Visual Timeline",schedule:"Cohort Schedule",pcc:"Phase 00 · Claude Code Power-Ups",p0:"Phase 0 · Python Bridge",p1:"Phase 1 · GenAI Foundations",p2:"Phase 2 · Agentic AI Core",p3:"Phase 3 · Evals & Guardrails",p4:"Phase 4 · Production & LLMOps",p5:"Phase 5 · Differentiators & Job Launch",matrix:"Coverage Matrix",resources:"Resource Library",projects:"Portfolio Projects"};
+var TITLES={overview:"Overview",timeline:"Visual Timeline",schedule:"Weekly Plan",pcc:"Phase 00 · Claude Code Power-Ups",p0:"Phase 0 · Python Bridge",p1:"Phase 1 · GenAI Foundations",p2:"Phase 2 · Agentic AI Core",p3:"Phase 3 · Evals & Guardrails",p4:"Phase 4 · Production & LLMOps",p5:"Phase 5 · Differentiators & Job Launch",matrix:"Coverage Matrix",resources:"Resource Library",projects:"Portfolio Projects"};
 var sb=document.getElementById('sb'),bk=document.getElementById('bk'),main=document.getElementById('main');
 var mobile=function(){return window.innerWidth<=920};
 
@@ -788,6 +946,39 @@ window.addEventListener('hashchange',function(){
 var start='overview';
 try{if(location.hash)start=location.hash.replace('#','');}catch(e){}
 go(start);
+
+// ── weekly-plan checkboxes: persist to localStorage + progress bar ──
+(function(){
+  var boxes=document.querySelectorAll('.chk input[type=checkbox]');
+  if(!boxes.length)return;
+  var fill=document.getElementById('progfill'),lbl=document.getElementById('proglbl');
+  function update(){
+    var done=0,i;
+    for(i=0;i<boxes.length;i++){
+      var b=boxes[i],li=b.parentNode;
+      if(li&&li.classList)li.classList.toggle('done',b.checked);
+      if(b.checked)done++;
+    }
+    var wks=document.querySelectorAll('.wk');
+    for(i=0;i<wks.length;i++){
+      var bs=wks[i].querySelectorAll('input[type=checkbox]'),all=bs.length>0,x;
+      for(x=0;x<bs.length;x++){if(!bs[x].checked){all=false;break;}}
+      wks[i].classList.toggle('done',all);
+    }
+    var pct=boxes.length?Math.round(done/boxes.length*100):0;
+    if(fill)fill.style.width=pct+'%';
+    if(lbl)lbl.innerHTML='<b>'+done+'</b> / '+boxes.length+' deliverables done · <b>'+pct+'%</b>';
+  }
+  for(var i=0;i<boxes.length;i++){
+    var b=boxes[i];
+    try{if(localStorage.getItem('aiplan:'+b.id)==='1')b.checked=true;}catch(e){}
+    b.addEventListener('change',function(){
+      try{localStorage.setItem('aiplan:'+this.id,this.checked?'1':'0');}catch(e){}
+      update();
+    });
+  }
+  update();
+})();
 </script>
 </body>
 </html>
